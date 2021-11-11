@@ -14,16 +14,16 @@ Description: Various functions and constants providing access to several IOTC da
     Harmonized SF data      (IOTDB / vwSF<species>, for ALB, BET, SKJ, YFT, All billfish, BLM, BUM, MLS, SFA, SWO, All neritics, All sharks)
     The 'official' form replaces the flag country + reporting country codes with a fleet code as defined by
     IOTDB / CountryStratVsFleet table
-    etc. [ ADD SOME MORE SPECS ON THE HARMONIZED SPECIES TABLE AND SIMILER ]
+    etc. [ ADD SOME MORE SPECS ON THE HARMONIZED SPECIES TABLE AND SIMILAR ]
 License: Private
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 Depends: 
     DBI,
-    iotc.core.db.data,
-    iotc.core.utils.misc,
-    iotc.core.gis.cwp.IO,
+    iotc.core.db.data (>= 0.2.1),
+    iotc.core.utils.misc (>= 0.2.1),
+    iotc.core.gis.cwp.IO (>= 0.2.1),
     data.table,
     openxlsx,
     stringi,
