@@ -34,7 +34,7 @@ EF_ros = function(years = NULL,
   s_school_type_codes = join_strings(school_type_codes)
   s_effort_unit_codes = join_strings(effort_unit_codes)
 
-  EF_query = paste0("SELECT * FROM [ROS_analysis].V_ROS_EF EF WHERE ")
+  EF_query = paste0("SELECT * FROM [ROS_rlibs].V_EF EF WHERE ")
 
   if(!is.null(s_years)) EF_query = paste0(EF_query, "EF.YEAR IN (", s_years, ") AND ")
 
@@ -107,7 +107,7 @@ CA_ros = function(years = NULL,
   s_catch_unit_codes = join_strings(catch_unit_codes)
   s_fate_codes       = join_strings(fate_codes)
 
-  CA_query = paste0("SELECT * FROM [ROS_analysis].V_ROS_CA CA WHERE ")
+  CA_query = paste0("SELECT * FROM [ROS_rlibs].[V_CA CA WHERE ")
 
   if(!is.null(s_years)) CA_query = paste0(CA_query, "CA.YEAR IN (", s_years, ") AND ")
 
@@ -188,7 +188,7 @@ CE_ros = function(years = NULL,
   s_catch_unit_codes  = join_strings(catch_unit_codes)
   s_fate_codes        = join_strings(fate_codes)
 
-  CE_query = paste0("SELECT * FROM [ROS_analysis].V_ROS_CE CE WHERE ")
+  CE_query = paste0("SELECT * FROM [ROS_rlibs].[V_CE CE WHERE ")
 
   if(!is.null(s_years)) CE_query = paste0(CE_query, "CE.YEAR IN (", s_years, ") AND ")
 
@@ -267,7 +267,7 @@ IN_ros = function(years = NULL,
   s_fate_codes      = join_strings(fate_codes)
   s_condition_codes = join_strings(condition_codes)
 
-  IN_query = paste0("SELECT * FROM [ROS_analysis].V_ROS_IN RIN WHERE ")
+  IN_query = paste0("SELECT * FROM [ROS_rlibs].[V_IN RIN WHERE ")
 
   if(!is.null(s_years)) IN_query = paste0(IN_query, "RIN.YEAR IN (", s_years, ") AND ")
 
@@ -294,7 +294,7 @@ IN_ros = function(years = NULL,
   )
 }
 
-#' Retrieves ROS monthly sample data from the \code{[ROS_analysis].V_ROS_SA} view on \code{\link{ROS_ANALYSIS}} DB, optionally filtering the records
+#' Retrieves ROS monthly sample data from the \code{[ROS_rlibs].[V_SA} view on \code{\link{ROS_ANALYSIS}} DB, optionally filtering the records
 #' according to a variable set of user-provided, AND-ed criteria
 #'
 #' @param years A vector of years the extraction should be limited to
@@ -342,7 +342,7 @@ SA_ros = function(years = NULL,
   s_species_wp_codes       = join_strings(species_wp_codes)
   s_measure_type_codes = join_strings(measure_type_codes)
 
-  SA_query = paste0("SELECT * FROM [ROS_analysis].V_ROS_SA SA WHERE ")
+  SA_query = paste0("SELECT * FROM [ROS_rlibs].[V_SA SA WHERE ")
 
   if(!is.null(s_years)) SA_query = paste0(SA_query, "SA.YEAR IN (", s_years, ") AND ")
 
@@ -368,7 +368,7 @@ SA_ros = function(years = NULL,
   )
 }
 
-#' Retrieves ROS monthly size-frequency data from the \code{[ROS_analysis].V_ROS_SF} view on \code{\link{ROS_ANALYSIS}}, optionally filtering the records
+#' Retrieves ROS monthly size-frequency data from the \code{[ROS_rlibs].[V_SF} view on \code{\link{ROS_ANALYSIS}}, optionally filtering the records
 #' according to a variable set of user-provided, AND-ed criteria
 #'
 #' @param years A vector of years the extraction should be limited to
@@ -419,7 +419,7 @@ SF_ros = function(years = NULL,
   s_measure_type_codes = join_strings(measure_type_codes)
   s_sex_codes          = join_strings(sex_codes)
 
-  SF_query = paste0("SELECT * FROM [ROS_analysis].V_ROS_SF SF WHERE ")
+  SF_query = paste0("SELECT * FROM [ROS_rlibs].[V_SF SF WHERE ")
 
   if(!is.null(s_years)) SF_query = paste0(SF_query, "SF.YEAR IN (", s_years, ") AND ")
 
@@ -446,7 +446,7 @@ SF_ros = function(years = NULL,
   )
 }
 
-#' Retrieves ROS monthly length-weight data from the \code{[ROS_analysis].V_ROS_LW} view on \code{\link{ROS}}, optionally filtering the records
+#' Retrieves ROS monthly length-weight data from the \code{[ROS_rlibs].[V_LW} view on \code{\link{ROS}}, optionally filtering the records
 #' according to a variable set of user-provided, AND-ed criteria
 #'
 #' @param years A vector of years the extraction should be limited to
