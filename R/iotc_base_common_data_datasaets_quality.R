@@ -34,6 +34,14 @@ data_quality = function(year_from = NULL,
 
   data = as.data.table(data)
 
+  data[, FISHERY_GROUP_CODE := ifelse(FISHERY_GROUP == "Longline", "LL",
+                                      ifelse(FISHERY_GROUP == "Purse seine", "PS",
+                                             ifelse(FISHERY_GROUP == "Handline", "HL",
+                                                    ifelse(FISHERY_GROUP == "Gillnet", "GN",
+                                                           ifelse(FISHERY_GROUP == "Trolling", "TL",
+                                                                  ifelse(FISHERY_GROUP == "Baitboat", "BB",
+                                                                         "OT"))))))]
+
   data[, ":=" (CATCH   = as.numeric(CATCH),
                CATCH_CE= as.numeric(CATCH_CE),
                SAMPLES = as.numeric(SAMPLES),
@@ -48,7 +56,7 @@ data_quality = function(year_from = NULL,
                CE = as.factor(CE),
                SF = as.factor(SF))]
 
-  return (decorate(data, factorize_result,  connection = connection))
+  return (decorate(data, factorize_result, connection = connection))
 
   #return (
   #  result[, .(YEAR,
