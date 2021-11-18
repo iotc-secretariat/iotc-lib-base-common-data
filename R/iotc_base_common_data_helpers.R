@@ -173,7 +173,7 @@ decorate = function(data, factorize = TRUE, remove_non_standard_columns = TRUE, 
       connection
     )
 
-  if(factorize)         result = factorize_all(result, connection)
+  if(factorize) result = factorize_all(result, connection)
 
   return (reorder_columns(result, remove_non_standard_columns))
 }
