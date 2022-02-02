@@ -2,7 +2,7 @@
 % Please edit documentation in R/iotc_base_common_data_datasets_ROS.R
 \name{LW_ros}
 \alias{LW_ros}
-\title{Retrieves ROS monthly length-weight data from the \code{[ROS_analysis].V_ROS_LW} view on \code{\link{ROS}}, optionally filtering the records
+\title{Retrieves ROS monthly length-weight data from the \code{[ROS_rlibs].[V_LW} view on \code{\link{ROS}}, optionally filtering the records
 according to a variable set of user-provided, AND-ed criteria}
 \usage{
 LW_ros(
@@ -64,7 +64,7 @@ LW_ros(
 a data frame with the records from \code{.V_ROS_LW} matching the filtering criteria
 }
 \description{
-Retrieves ROS monthly length-weight data from the \code{[ROS_analysis].V_ROS_LW} view on \code{\link{ROS}}, optionally filtering the records
+Retrieves ROS monthly length-weight data from the \code{[ROS_rlibs].[V_LW} view on \code{\link{ROS}}, optionally filtering the records
 according to a variable set of user-provided, AND-ed criteria
 }
 \examples{

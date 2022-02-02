@@ -2,7 +2,7 @@
 % Please edit documentation in R/iotc_base_common_data_datasets_ROS.R
 \name{SF_ros}
 \alias{SF_ros}
-\title{Retrieves ROS monthly size-frequency data from the \code{[ROS_analysis].V_ROS_SF} view on \code{\link{ROS_ANALYSIS}}, optionally filtering the records
+\title{Retrieves ROS monthly size-frequency data from the \code{[ROS_rlibs].[V_SF} view on \code{\link{ROS_ANALYSIS}}, optionally filtering the records
 according to a variable set of user-provided, AND-ed criteria}
 \usage{
 SF_ros(
@@ -61,7 +61,7 @@ SF_ros(
 a data frame with the records from \code{V_ROS_SF} matching the filtering criteria
 }
 \description{
-Retrieves ROS monthly size-frequency data from the \code{[ROS_analysis].V_ROS_SF} view on \code{\link{ROS_ANALYSIS}}, optionally filtering the records
+Retrieves ROS monthly size-frequency data from the \code{[ROS_rlibs].[V_SF} view on \code{\link{ROS_ANALYSIS}}, optionally filtering the records
 according to a variable set of user-provided, AND-ed criteria
 }
 \examples{

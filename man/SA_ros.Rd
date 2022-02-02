@@ -2,7 +2,7 @@
 % Please edit documentation in R/iotc_base_common_data_datasets_ROS.R
 \name{SA_ros}
 \alias{SA_ros}
-\title{Retrieves ROS monthly sample data from the \code{[ROS_analysis].V_ROS_SA} view on \code{\link{ROS_ANALYSIS}} DB, optionally filtering the records
+\title{Retrieves ROS monthly sample data from the \code{[ROS_rlibs].[V_SA} view on \code{\link{ROS_ANALYSIS}} DB, optionally filtering the records
 according to a variable set of user-provided, AND-ed criteria}
 \usage{
 SA_ros(
@@ -58,7 +58,7 @@ SA_ros(
 a data frame with the records from \code{V_ROS_SA} matching the filtering criteria
 }
 \description{
-Retrieves ROS monthly sample data from the \code{[ROS_analysis].V_ROS_SA} view on \code{\link{ROS_ANALYSIS}} DB, optionally filtering the records
+Retrieves ROS monthly sample data from the \code{[ROS_rlibs].[V_SA} view on \code{\link{ROS_ANALYSIS}} DB, optionally filtering the records
 according to a variable set of user-provided, AND-ed criteria
 }
 \examples{
