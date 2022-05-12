@@ -4,10 +4,10 @@
 \alias{factorize_ROS_event_types}
 \title{Factorizes the ROS event type codes in a data frame}
 \usage{
-factorize_ROS_event_types(data)
+factorize_ROS_event_types(to_factorize)
 }
 \arguments{
-\item{data}{The data frame whose \code{EVENT_TYPE_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{EVENT_TYPE_CODE} column should be factorized}
 
 \item{connection}{A connection to \code{\link{IOTDB}}}
 }

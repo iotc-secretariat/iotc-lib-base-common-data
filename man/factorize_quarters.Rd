@@ -4,10 +4,10 @@
 \alias{factorize_quarters}
 \title{Factorizes the quarters in a data frame}
 \usage{
-factorize_quarters(data)
+factorize_quarters(to_factorize)
 }
 \arguments{
-\item{data}{The data frame whose \code{QUARTER} column should be factorized}
+\item{to_factorize}{The data frame whose \code{QUARTER} column should be factorized}
 }
 \value{
 the original data frame with the \code{QUARTER} factorized according to the default sequence of quarters

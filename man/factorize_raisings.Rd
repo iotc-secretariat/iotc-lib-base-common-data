@@ -4,10 +4,10 @@
 \alias{factorize_raisings}
 \title{Factorizes the raising codes in a data frame}
 \usage{
-factorize_raisings(data, connection = DB_IOTDB())
+factorize_raisings(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{RAISE_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{RAISE_CODE} column should be factorized}
 
 \item{connection}{A connection to \code{\link{IOTDB}}}
 }

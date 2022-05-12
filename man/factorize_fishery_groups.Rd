@@ -4,10 +4,10 @@
 \alias{factorize_fishery_groups}
 \title{Factorizes the fishery group codes in a data frame}
 \usage{
-factorize_fishery_groups(data, connection = DB_IOTDB())
+factorize_fishery_groups(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{FISHERY_GROUP_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{FISHERY_GROUP_CODE} column should be factorized}
 
 \item{connection}{A connection to \code{\link{IOTDB}}}
 }

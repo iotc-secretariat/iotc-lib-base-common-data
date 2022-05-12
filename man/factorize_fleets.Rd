@@ -4,10 +4,10 @@
 \alias{factorize_fleets}
 \title{Factorizes the fleet codes in a data frame}
 \usage{
-factorize_fleets(data, connection = DB_IOTDB())
+factorize_fleets(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{FLEET_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{FLEET_CODE} column should be factorized}
 
 \item{connection}{A connection to the IOTDB (required to retrieve fleet data)}
 }

@@ -4,10 +4,10 @@
 \alias{factorize_conditions}
 \title{Factorizes the condition codes in a data frame}
 \usage{
-factorize_conditions(data, connection = DB_IOTDB())
+factorize_conditions(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{CONDITION_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{CONDITION_CODE} column should be factorized}
 
 \item{connection}{A connection to \code{\link{IOTDB}}}
 }

@@ -4,10 +4,10 @@
 \alias{factorize_fate_types}
 \title{Factorizes the fate type codes in a data frame}
 \usage{
-factorize_fate_types(data, connection = DB_IOTDB())
+factorize_fate_types(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{FATE_TYPE_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{FATE_TYPE_CODE} column should be factorized}
 
 \item{connection}{A connection to \code{\link{IOTDB}}}
 }

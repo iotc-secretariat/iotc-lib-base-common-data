@@ -71,9 +71,12 @@ add_fishery_codes = function(data) {
         [FISHERY_GROUP_CODE == "LL" &  GEAR_CODE == "FLL", FISHERY_CODE := "LLF"]
         [FISHERY_GROUP_CODE == "GN", FISHERY_CODE := "GN"]
         [FISHERY_GROUP_CODE == "BB", FISHERY_CODE := "BB"]
-        [FISHERY_GROUP_CODE == "HL" & GEAR_CODE != "LLCO", FISHERY_CODE := "LIH"]
-        [FISHERY_GROUP_CODE == "HL" & GEAR_CODE == "LLCO", FISHERY_CODE := "LIC"]
-        [FISHERY_GROUP_CODE == "TL", FISHERY_CODE := "LIT"]
+        #[FISHERY_GROUP_CODE == "HL" & GEAR_CODE != "LLCO", FISHERY_CODE := "LIH"]
+        [GEAR_CODE %in% c("DL", "HAND", "HANP", "HLOF", "LLF"), FISHERY_CODE := "LIH"]
+        #[( FISHERY_GROUP_CODE == "HL" & GEAR_CODE == "LLCO" ) , FISHERY_CODE := "LIC"]
+        [GEAR_CODE == "LLCO", FISHERY_CODE := "LIC"]
+        #[FISHERY_GROUP_CODE == "TL", FISHERY_CODE := "LIT" ]
+        [GEAR_CODE %in% c("HABBM", "HABBNM", "HABBTR", "HATR", "HOOK", "SPOR", "TROL" , "TROLM", "TROLN"), FISHERY_CODE := "LIT"]
         [!FISHERY_CODE %in% c("PSOT", "PSFS", "PSLS", "LLO", "LLD", "LLF", "GN", "BB", "LIC", "LIH", "LIT"), FISHERY_CODE := "OT"]
   )
 

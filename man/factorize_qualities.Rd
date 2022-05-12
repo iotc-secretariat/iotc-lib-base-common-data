@@ -7,10 +7,10 @@ This function is unnecessary, as the regular NC, EF, CA, CE and SA datasets do n
 The only place where quality codes are leveraged is during the creation of dataset-specific quality charts, which include already
 the logic to factorize the colors by quality code.}
 \usage{
-factorize_qualities(data)
+factorize_qualities(to_factorize)
 }
 \arguments{
-\item{data}{The data frame whose \code{QUALITY_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{QUALITY_CODE} column should be factorized}
 
 \item{connection}{A connection to the IOTDB (required for the factorization of fleets)}
 }

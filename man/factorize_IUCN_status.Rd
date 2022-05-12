@@ -4,10 +4,10 @@
 \alias{factorize_IUCN_status}
 \title{Factorizes the species codes in a data frame}
 \usage{
-factorize_IUCN_status(data, connection = DB_IOTDB())
+factorize_IUCN_status(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{IUCN_STATUS} column should be factorized}
+\item{to_factorize}{The data frame whose \code{IUCN_STATUS} column should be factorized}
 
 \item{connection}{A connection to \code{\link{IOTDB}}}
 }

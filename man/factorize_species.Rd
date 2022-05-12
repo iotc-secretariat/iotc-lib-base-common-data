@@ -4,10 +4,10 @@
 \alias{factorize_species}
 \title{Factorizes the species codes in a data frame}
 \usage{
-factorize_species(data, connection = DB_IOTDB())
+factorize_species(to_factorize, connection = DB_IOTDB())
 }
 \arguments{
-\item{data}{The data frame whose \code{SPECIES_CODE} column should be factorized}
+\item{to_factorize}{The data frame whose \code{SPECIES_CODE} column should be factorized}
 
 \item{connection}{A connection to the \code{\link{IOTDB}}}
 }
