@@ -118,14 +118,14 @@ sanitize_vessel_IOTC_number = function(vessel_IOTC_number) {
 }
 
 extract_buoy_model = function(buoy_id) {
-  str_extract(buoy_id, "ISD\\+|ISL\\+|M3\\+|M3I|M4I|SLX\\+|DSL\\+|T8E|T8X|Te7|T7\\+|Orbit")
+  str_extract(buoy_id, "ISD\\+|ISL\\+|M3\\+|M3I|M4I|MGO|SLX\\+|DSL\\+|T8E|T8X|Te7|T7\\+|Orbit")
 }
 
 extract_buoy_brand = function(buoy_id) {
   model = extract_buoy_model(buoy_id)
 
   return(
-    fifelse(model %in% c("M3+", "M3I", "M4I"), "MI",
+    fifelse(model %in% c("M3+", "M3I", "M4I", "MGO"), "MI",
       fifelse(model %in% c("T8E", "T8X", "Te7", "T7+"), "ZUNIBAL",
         fifelse(model %in% c("Orbit"), "THALOS",
           "SATLINK"
