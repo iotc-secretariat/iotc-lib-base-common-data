@@ -692,7 +692,13 @@ factorize_others = function(to_factorize) {
 
   if(SCHOOL_TYPE_CODE %in% columns) to_factorize$SCHOOL_TYPE_CODE = factor(to_factorize$SCHOOL_TYPE_CODE, ordered = TRUE)
   if(EFFORT_SCHOOL_TYPE_CODE %in% columns) to_factorize$EFFORT_SCHOOL_TYPE_CODE = factor(to_factorize$EFFORT_SCHOOL_TYPE_CODE, ordered = TRUE)
-  if(CATCH_SCHOOL_TYPE_CODE %in% columns) to_factorize$CATCH_SCHOOL_TYPE_CODE = factor(to_factorize$CATCH_SCHOOL_TYPE_CODE, ordered = TRUE)
+  if(CATCH_SCHOOL_TYPE_CODE %in% columns) {
+    to_factorize$CATCH_SCHOOL_TYPE_CODE = as.character(to_factorize$CATCH_SCHOOL_TYPE_CODE)
+    #Assigns 'UNCL' to catch school type codes which are not set, otherwise it will trigger a bug with data.table
+    to_factorize[is.na(CATCH_SCHOOL_TYPE_CODE)]$CATCH_SCHOOL_TYPE_CODE = "UNCL"
+
+    to_factorize$CATCH_SCHOOL_TYPE_CODE = factor(to_factorize$CATCH_SCHOOL_TYPE_CODE, ordered = TRUE)
+  }
 
   if(EFFORT_UNIT_CODE %in% columns) to_factorize$EFFORT_UNIT_CODE = factor(to_factorize$EFFORT_UNIT_CODE, ordered = TRUE)
 
