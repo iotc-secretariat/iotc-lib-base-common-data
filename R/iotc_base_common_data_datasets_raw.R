@@ -131,7 +131,7 @@ EF_raw = function(use_official = TRUE,
   if(!is.null(s_flag_codes))  EF_query = paste0(EF_query, "EF.FLAG_CODE IN (", s_flag_codes, ") AND ")
   if(!is.null(s_fleet_codes)) EF_query = paste0(EF_query, "EF.FLEET_CODE IN (", s_fleet_codes, ") AND ")
 
-  if(!is.null(s_gear_codes)) EF_query = paste0(EF_query, "EF.GEAR_CODE IN (", s_fishery_codes, ") AND ")
+  if(!is.null(s_gear_codes)) EF_query = paste0(EF_query, "EF.GEAR_CODE IN (", s_gear_codes, ") AND ")
 
   if(!is.null(s_school_type_codes)) EF_query = paste0(EF_query, "EF.EFFORT_SCHOOL_TYPE_CODE IN (", s_school_type_codes, ") AND ")
   if(!is.null(s_effort_unit_codes)) EF_query = paste0(EF_query, "EF.EFFORT_UNIT_CODE IN (", s_effort_unit_codes, ") AND ")
