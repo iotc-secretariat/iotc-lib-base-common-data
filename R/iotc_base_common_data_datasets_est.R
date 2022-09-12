@@ -124,6 +124,14 @@ SF_est = function(species_code,
     length_bins = c(length_bins, sprintf("C%03d", c))
 
   SF_query = paste0("
+    WITH FLEET_FISHERY_TYPE AS (
+  	  SELECT DISTINCT
+    		FLEET,
+    		FISHERY_CODE,
+    		FISHERY_TYPE_CODE
+    	FROM
+    		[meta].TEMP_CSVF
+    )
     SELECT
       SF.Year AS YEAR,
       SF.MonthStart AS MONTH_START,
@@ -169,7 +177,7 @@ SF_est = function(species_code,
     ON
       SF.Gear = G.ACode
     INNER JOIN
-      [meta].TEMP_CSVF CSVF
+      FLEET_FISHERY_TYPE CSVF
     ON
       CSVF.FISHERY_CODE = SF.Gear AND
       CSVF.FLEET = SF.Fleet
