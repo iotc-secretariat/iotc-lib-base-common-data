@@ -4,315 +4,315 @@ CL_CACHE = new.env(hash = TRUE)
 
 #'The year column constant
 #'@export
-YEAR                    = "YEAR"
+C_YEAR                    = "YEAR"
 
 #'The quarter column constant
 #'@export
-QUARTER                 = "QUARTER"
+C_QUARTER                 = "QUARTER"
 
 #'The month (start) column constant
 #'@export
-MONTH_START             = "MONTH_START"
+C_MONTH_START             = "MONTH_START"
 
 #'The month (end) column constant
 #'@export
-MONTH_END               = "MONTH_END"
+C_MONTH_END               = "MONTH_END"
 
 #'The flag code column constant
 #'@export
-FLAG_CODE               = "FLAG_CODE"
+C_FLAG_CODE               = "FLAG_CODE"
 
 #'The fleet code column constant
 #'@export
-FLEET_CODE              = "FLEET_CODE"
+C_FLEET_CODE              = "FLEET_CODE"
 
 #'The fleet column constant
 #'@export
-FLEET                   = "FLEET"
+C_FLEET                   = "FLEET"
 
 #'The gear code column constant
 #'@export
-GEAR_CODE               = "GEAR_CODE"
+C_GEAR_CODE               = "GEAR_CODE"
 
 #'The gear column constant
 #'@export
-GEAR                    = "GEAR"
+C_GEAR                    = "GEAR"
 
 #'The fishery code column constant
 #'@export
-FISHERY_CODE            = "FISHERY_CODE"
+C_FISHERY_CODE            = "FISHERY_CODE"
 
 #'The fishery column constant
 #'@export
-FISHERY                 = "FISHERY"
+C_FISHERY                 = "FISHERY"
 
 #'The fishery group code column constant
 #'@export
-FISHERY_GROUP_CODE      = "FISHERY_GROUP_CODE"
+C_FISHERY_GROUP_CODE      = "FISHERY_GROUP_CODE"
 
 #'The fishery group column constant
 #'@export
-FISHERY_GROUP           = "FISHERY_GROUP"
+C_FISHERY_GROUP           = "FISHERY_GROUP"
 
 #'The fishery type code column constant
 #'@export
-FISHERY_TYPE_CODE       = "FISHERY_TYPE_CODE"
+C_FISHERY_TYPE_CODE       = "FISHERY_TYPE_CODE"
 
 #'The fishery type column constant
 #'@export
-FISHERY_TYPE            = "FISHERY_TYPE"
+C_FISHERY_TYPE            = "FISHERY_TYPE"
 
 #'The species code column constant
 #'@export
-SPECIES_CODE            = "SPECIES_CODE"
+C_SPECIES_CODE            = "SPECIES_CODE"
 
 #'The species column constant
 #'@export
-SPECIES                 = "SPECIES"
+C_SPECIES                 = "SPECIES"
 
 #'The species category code column constant
 #'@export
-SPECIES_CATEGORY_CODE   = "SPECIES_CATEGORY_CODE"
+C_SPECIES_CATEGORY_CODE   = "SPECIES_CATEGORY_CODE"
 
 #'The species category column constant
 #'@export
-SPECIES_CATEGORY        = "SPECIES_CATEGORY"
+C_SPECIES_CATEGORY        = "SPECIES_CATEGORY"
 
 #'The species group column constant
 #'@export
-SPECIES_GROUP           = "SPECIES_GROUP"
+C_SPECIES_GROUP           = "SPECIES_GROUP"
 
 #'The species group code column constant
 #'@export
-SPECIES_GROUP_CODE      = "SPECIES_GROUP_CODE"
+C_SPECIES_GROUP_CODE      = "SPECIES_GROUP_CODE"
 
 #'The species group column constant
 #'@export
-SPECIES_GROUP           = "SPECIES_GROUP"
+C_SPECIES_GROUP           = "SPECIES_GROUP"
 
 #'The working party code column constant
 #'@export
-SPECIES_WP_CODE         = "SPECIES_WP_CODE"
+C_SPECIES_WP_CODE         = "SPECIES_WP_CODE"
 
 #'The working party column constant
 #'@export
-SPECIES_WP              = "SPECIES_WP"
+C_SPECIES_WP              = "SPECIES_WP"
 
 #'The 'is IOTC species' column constant
 #'@export
-IS_IOTC_SPECIES         = "IS_IOTC_SPECIES"
+C_IS_IOTC_SPECIES         = "IS_IOTC_SPECIES"
 
 #'The 'is species aggregate' column constant
 #'@export
-IS_SPECIES_AGGREGATE    = "IS_SPECIES_AGGREGATE"
+C_IS_SPECIES_AGGREGATE    = "IS_SPECIES_AGGREGATE"
 
 #'The 'is species of special interest' column constant
 #'@export
-IS_SSI                  = "IS_SSI"
+C_IS_SSI                  = "IS_SSI"
 
 #'The 'IUCN status code' column constant
 #'@export
-IUCN_STATUS_CODE        = "IUCN_STATUS_CODE"
+C_IUCN_STATUS_CODE        = "IUCN_STATUS_CODE"
 
 #'The 'IUCN status' column constant
 #'@export
-IUCN_STATUS             = "IUCN_STATUS"
+C_IUCN_STATUS             = "IUCN_STATUS"
 
 #'The fishing ground column constant
 #'@export
-FISHING_GROUND          = "FISHING_GROUND"
+C_FISHING_GROUND          = "FISHING_GROUND"
 
 #'The fishing ground code column constant
 #'@export
-FISHING_GROUND_CODE     = "FISHING_GROUND_CODE"
+C_FISHING_GROUND_CODE     = "FISHING_GROUND_CODE"
 
 #'The raising column constant
 #'@export
-RAISING                 = "RAISING"
+C_RAISING                 = "RAISING"
 
 #'The raise code column constant
 #'@export
-RAISE_CODE              = "RAISE_CODE"
+C_RAISE_CODE              = "RAISE_CODE"
 
 ### Columns specific to nominal catch and geo-referenced catch data sets
 
 #'The catch column constant
 #'@export
-CATCH                   = "CATCH"
+C_CATCH                   = "CATCH"
 
 #'The catch unit code column constant
 #'@export
-CATCH_UNIT_CODE         = "CATCH_UNIT_CODE"
+C_CATCH_UNIT_CODE         = "CATCH_UNIT_CODE"
 
 ### Columns specific to nominal catch (raised) data set
 
 #'The catch in numbers column constant
 #'@export
-CATCH_IN_NUMBERS        = "CATCH_IN_NUMBERS"
+C_CATCH_IN_NUMBERS        = "CATCH_IN_NUMBERS"
 
 #'The fate column constant
 #'@export
-FATE                    = "FATE"
+C_FATE                    = "FATE"
 
 #'The fate code column constant
 #'@export
-FATE_CODE               = "FATE_CODE"
+C_FATE_CODE               = "FATE_CODE"
 
 #'The fate type column constant
 #'@export
-FATE_TYPE               = "FATE_TYPE"
+C_FATE_TYPE               = "FATE_TYPE"
 
 #'The fate type code column constant
 #'@export
-FATE_TYPE_CODE          = "FATE_TYPE_CODE"
+C_FATE_TYPE_CODE          = "FATE_TYPE_CODE"
 
 ### Columns specific to catch-and-effort data sets
 
 #'The effort school type code column constant
 #'@export
-EFFORT_SCHOOL_TYPE_CODE = "EFFORT_SCHOOL_TYPE_CODE"
+C_EFFORT_SCHOOL_TYPE_CODE = "EFFORT_SCHOOL_TYPE_CODE"
 
 #'The catch school type code column constant
 #'@export
-CATCH_SCHOOL_TYPE_CODE  = "CATCH_SCHOOL_TYPE_CODE"
+C_CATCH_SCHOOL_TYPE_CODE  = "CATCH_SCHOOL_TYPE_CODE"
 
 #'The effort column constant
 #'@export
-EFFORT                  = "EFFORT"
+C_EFFORT                  = "EFFORT"
 
 #'The effort unit code column constant
 #'@export
-EFFORT_UNIT_CODE        = "EFFORT_UNIT_CODE"
+C_EFFORT_UNIT_CODE        = "EFFORT_UNIT_CODE"
 
 # Columns specific to size-Frequency data sets only
 
 #'The school type code column constant
 #'@export
-SCHOOL_TYPE_CODE        = "SCHOOL_TYPE_CODE"
+C_SCHOOL_TYPE_CODE        = "SCHOOL_TYPE_CODE"
 
 #'The measure type codecolumn constant
 #'@export
-MEASURE_TYPE 		        = "MEASURE_TYPE"
+C_MEASURE_TYPE 		        = "MEASURE_TYPE"
 
 
 #'The measure type code column constant
 #'@export
-MEASURE_TYPE_CODE 		  = "MEASURE_TYPE_CODE"
+C_MEASURE_TYPE_CODE 		  = "MEASURE_TYPE_CODE"
 
 #'The measure unit code column constant
 #'@export
-MEASURE_UNIT_CODE 		  = "MEASURE_UNIT_CODE"
+C_MEASURE_UNIT_CODE 		  = "MEASURE_UNIT_CODE"
 
 #'The length measure type code column constant
 #'@export
-LENGTH_MEASURE_TYPE_CODE= "LENGTH_MEASURE_TYPE_CODE"
+C_LENGTH_MEASURE_TYPE_CODE= "LENGTH_MEASURE_TYPE_CODE"
 
 #'The length measure unit code column constant
 #'@export
-LENGTH_MEASURE_UNIT_CODE= "LENGTH_MEASURE_UNIT_CODE"
+C_LENGTH_MEASURE_UNIT_CODE= "LENGTH_MEASURE_UNIT_CODE"
 
 #'The weight measure type code column constant
 #'@export
-WEIGHT_MEASURE_TYPE_CODE= "WEIGHT_MEASURE_TYPE_CODE"
+C_WEIGHT_MEASURE_TYPE_CODE= "WEIGHT_MEASURE_TYPE_CODE"
 
 #'The weight measure unit code column constant
 #'@export
-WEIGHT_MEASURE_UNIT_CODE= "WEIGHT_MEASURE_UNIT_CODE"
+C_WEIGHT_MEASURE_UNIT_CODE= "WEIGHT_MEASURE_UNIT_CODE"
 
 #'The sex code column constant
 #'@export
-SEX_CODE 				        = "SEX_CODE"
+C_SEX_CODE 				        = "SEX_CODE"
 
 #'The sample size column constant
 #'@export
-SAMPLE_SIZE 			      = "SAMPLE_SIZE"
+C_SAMPLE_SIZE 			      = "SAMPLE_SIZE"
 
 #'The 'first class low' column constant
 #'@export
-FIRST_CLASS_LOW 		    = "FIRST_CLASS_LOW"
+C_FIRST_CLASS_LOW 		    = "FIRST_CLASS_LOW"
 
 #'The size class column constant
 #'@export
-SIZE_INTERVAL 			    = "SIZE_INTERVAL"
+C_SIZE_INTERVAL 			    = "SIZE_INTERVAL"
 
 #'The class low column constant
 #'@export
-CLASS_LOW 				      = "CLASS_LOW"
+C_CLASS_LOW 				      = "CLASS_LOW"
 
 #'The class high column constant
 #'@export
-CLASS_HIGH 				      = "CLASS_HIGH"
+C_CLASS_HIGH 				      = "CLASS_HIGH"
 
 #'The fish count column constant
 #'@export
-FISH_COUNT 				      = "FISH_COUNT"
+C_FISH_COUNT 				      = "FISH_COUNT"
 
 #'The tot num fish column constant
 #'@export
-TOT_NUM_FISH 			      = "TOT_NUM_FISH"
+C_TOT_NUM_FISH 			      = "TOT_NUM_FISH"
 
 #'The tot kg fish column constant
 #'@export
-TOT_KG_FISH 			      = "TOT_KG_FISH"
+C_TOT_KG_FISH 			      = "TOT_KG_FISH"
 
 ### Misc
 
 #'The 'Quality' column constant
 #'@export
-QUALITY 			          = "QUALITY"
+C_QUALITY 			          = "QUALITY"
 
 #'The 'Quality code' column constant
 #'@export
-QUALITY_CODE            = "QUALITY_CODE"
+C_QUALITY_CODE            = "QUALITY_CODE"
 
 ### Columns specific to ROS interaction data
 
 #'The num. interactions column constant
 #'@export
-NUM_INTERACTIONS        = "NUM_INTERACTIONS"
+C_NUM_INTERACTIONS        = "NUM_INTERACTIONS"
 
 #'The condition column constant
 #'@export
-CONDITION               = "CONDITION"
+C_CONDITION               = "CONDITION"
 
 #'The condition code column constant
 #'@export
-CONDITION_CODE          = "CONDITION_CODE"
+C_CONDITION_CODE          = "CONDITION_CODE"
 
 #'The condition type column constant
 #'@export
-CONDITION_TYPE          = "CONDITION_TYPE"
+C_CONDITION_TYPE          = "CONDITION_TYPE"
 
 #'The condition type code column constant
 #'@export
-CONDITION_TYPE_CODE     = "CONDITION_TYPE_CODE"
+C_CONDITION_TYPE_CODE     = "CONDITION_TYPE_CODE"
 
 # ROS raw sets
 
 #'The event type code column constant
 #'@export
-EVENT_TYPE_CODE     = "EVENT_TYPE_CODE"
+C_EVENT_TYPE_CODE     = "EVENT_TYPE_CODE"
 
 #'The start time column constant
 #'@export
-START_TIME     = "START_TIME"
+C_START_TIME     = "START_TIME"
 
 #'The start lon column constant
 #'@export
-START_LON = "START_LON"
+C_START_LON = "START_LON"
 
 #'The start lat column constant
 #'@export
-START_LAT = "START_LAT"
+C_START_LAT = "START_LAT"
 
 #'The end time column constant
 #'@export
-END_TIME     = "END_TIME"
+C_END_TIME     = "END_TIME"
 
 #'The end lon column constant
 #'@export
-END_LON = "END_LON"
+C_END_LON = "END_LON"
 
 #'The end lat column constant
 #'@export
-END_LAT = "END_LAT"
+C_END_LAT = "END_LAT"

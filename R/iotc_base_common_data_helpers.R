@@ -42,76 +42,76 @@ all_codes = function(codelist = "FLEETS", connection = DB_IOTDB()) {
 reorder_columns = function(data, remove_non_standard_columns = TRUE) {
   columns = colnames(data)
 
-  STANDARD_COLS = c(YEAR,
-                    QUARTER,
-                    MONTH_START,
-                    MONTH_END,
-                    FISHING_GROUND_CODE,
-                    FISHING_GROUND,
-                    FLAG_CODE,
-                    FLEET_CODE,
-                    FLEET,
-                    FISHERY_TYPE_CODE,
-                    FISHERY_TYPE,
-                    FISHERY_GROUP_CODE,
-                    FISHERY_GROUP,
-                    FISHERY_CODE,
-                    FISHERY,
-                    GEAR_CODE,
-                    GEAR,
-                    SCHOOL_TYPE_CODE,
-                    EFFORT_SCHOOL_TYPE_CODE,
-                    CATCH_SCHOOL_TYPE_CODE,
-                    EFFORT,
-                    EFFORT_UNIT_CODE,
-                    IUCN_STATUS_CODE,
-                    IUCN_STATUS,
-                    SPECIES_WP_CODE,
-                    SPECIES_WP,
-                    SPECIES_GROUP_CODE,
-                    SPECIES_GROUP,
-                    SPECIES_CATEGORY_CODE,
-                    SPECIES_CATEGORY,
-                    SPECIES_CODE,
-                    SPECIES,
+  STANDARD_COLS = c(C_YEAR,
+                    C_QUARTER,
+                    C_MONTH_START,
+                    C_MONTH_END,
+                    C_FISHING_GROUND_CODE,
+                    C_FISHING_GROUND,
+                    C_FLAG_CODE,
+                    C_FLEET_CODE,
+                    C_FLEET,
+                    C_FISHERY_TYPE_CODE,
+                    C_FISHERY_TYPE,
+                    C_FISHERY_GROUP_CODE,
+                    C_FISHERY_GROUP,
+                    C_FISHERY_CODE,
+                    C_FISHERY,
+                    C_GEAR_CODE,
+                    C_GEAR,
+                    C_SCHOOL_TYPE_CODE,
+                    C_EFFORT_SCHOOL_TYPE_CODE,
+                    C_CATCH_SCHOOL_TYPE_CODE,
+                    C_EFFORT,
+                    C_EFFORT_UNIT_CODE,
+                    C_IUCN_STATUS_CODE,
+                    C_IUCN_STATUS,
+                    C_SPECIES_WP_CODE,
+                    C_SPECIES_WP,
+                    C_SPECIES_GROUP_CODE,
+                    C_SPECIES_GROUP,
+                    C_SPECIES_CATEGORY_CODE,
+                    C_SPECIES_CATEGORY,
+                    C_SPECIES_CODE,
+                    C_SPECIES,
                     "SPECIES_SCIENTIFIC",
                     "SPECIES_FAMILY",
                     "SPECIES_ORDER",
-                    IS_IOTC_SPECIES,
-                    IS_SPECIES_AGGREGATE,
-                    IS_SSI,
-                    CATCH,
-                    CATCH_UNIT_CODE,
-                    CATCH_IN_NUMBERS,
-                    FATE_TYPE_CODE,
-                    FATE_TYPE,
-                    FATE_CODE,
-                    FATE,
-                    CONDITION_TYPE_CODE,
-                    CONDITION_TYPE,
-                    CONDITION_CODE,
-                    CONDITION,
-                    NUM_INTERACTIONS,
-                    MEASURE_TYPE_CODE,
-                    MEASURE_TYPE,
-                    MEASURE_UNIT_CODE,
-                    LENGTH_MEASURE_TYPE_CODE,
+                    C_IS_IOTC_SPECIES,
+                    C_IS_SPECIES_AGGREGATE,
+                    C_IS_SSI,
+                    C_CATCH,
+                    C_CATCH_UNIT_CODE,
+                    C_CATCH_IN_NUMBERS,
+                    C_FATE_TYPE_CODE,
+                    C_FATE_TYPE,
+                    C_FATE_CODE,
+                    C_FATE,
+                    C_CONDITION_TYPE_CODE,
+                    C_CONDITION_TYPE,
+                    C_CONDITION_CODE,
+                    C_CONDITION,
+                    C_NUM_INTERACTIONS,
+                    C_MEASURE_TYPE_CODE,
+                    C_MEASURE_TYPE,
+                    C_MEASURE_UNIT_CODE,
+                    C_LENGTH_MEASURE_TYPE_CODE,
                     "LENGTH",
-                    LENGTH_MEASURE_UNIT_CODE,
-                    WEIGHT_MEASURE_TYPE_CODE,
+                    C_LENGTH_MEASURE_UNIT_CODE,
+                    C_WEIGHT_MEASURE_TYPE_CODE,
                     "WEIGHT",
-                    WEIGHT_MEASURE_UNIT_CODE,
-                    SEX_CODE,
-                    SAMPLE_SIZE,
+                    C_WEIGHT_MEASURE_UNIT_CODE,
+                    C_SEX_CODE,
+                    C_SAMPLE_SIZE,
   #                 "FIRST_CLASS_LOW",
   #                 "SIZE_INTERVAL",
-                    CLASS_LOW,
-                    CLASS_HIGH,
-                    FISH_COUNT,
+                    C_CLASS_LOW,
+                    C_CLASS_HIGH,
+                    C_FISH_COUNT,
   #                  "TOT_NUM_FISH",
   #                  "TOT_KG_FISH",
-                    RAISING,
-                    RAISE_CODE,
+                    C_RAISING,
+                    C_RAISE_CODE,
 
                     "CATCH_CE", # Specific for data quality results
                     "SAMPLES",  # Specific for data quality results
@@ -183,7 +183,7 @@ has_column = function(data, column_name) {
 }
 
 add_quarters = function(data) {
-  if(has_column(data, MONTH_START)) {
+  if(has_column(data, C_MONTH_START)) {
     data$QUARTER = "UNCL"
     data[MONTH_START <= 3, QUARTER := "Q1"]
     data[MONTH_START >= 4  & MONTH_START <= 6, QUARTER := "Q2"]
@@ -195,40 +195,40 @@ add_quarters = function(data) {
 }
 
 add_fishing_grounds = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, FISHING_GROUND_CODE) & !has_column(data, FISHING_GROUND)) {
+  if(has_column(data, C_FISHING_GROUND_CODE) & !has_column(data, C_FISHING_GROUND)) {
     CL = all_codes("FISHING_GROUNDS", connection)[order(+SORT)][, .(CODE, FISHING_GROUND = NAME_EN)]
 
-    data = merge(data, CL, by.x="FISHING_GROUND_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FISHING_GROUND_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_fleets = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, FLEET_CODE) & !has_column(data, FLEET)) {
+  if(has_column(data, C_FLEET_CODE) & !has_column(data, C_FLEET)) {
     CL = all_codes("FLEETS", connection)[order(+SORT)][, .(CODE, FLEET = NAME_EN)]
 
-    data = merge(data, CL, by.x="FLEET_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FLEET_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_fishery_types = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, FISHERY_TYPE_CODE) & !has_column(data, FISHERY_TYPE)) {
+  if(has_column(data, C_FISHERY_TYPE_CODE) & !has_column(data, C_FISHERY_TYPE)) {
     CL = all_codes("FISHERY_TYPES", connection)[order(+SORT)][, .(CODE, FISHERY_TYPE = NAME_EN)]
 
-    data = merge(data, CL, by.x="FISHERY_TYPE_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FISHERY_TYPE_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_fishery_groups = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, FISHERY_GROUP_CODE) & !has_column(data, FISHERY_GROUP)) {
+  if(has_column(data, C_FISHERY_GROUP_CODE) & !has_column(data, C_FISHERY_GROUP)) {
     CL = all_codes("FISHERY_GROUPS", connection)[order(+SORT)][, .(CODE, FISHERY_GROUP = NAME_EN)]
 
-    data = merge(data, CL, by.x="FISHERY_GROUP_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FISHERY_GROUP_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
@@ -238,10 +238,10 @@ add_fisheries = function(data, connection = DB_IOTDB()) {
   #Requires the fishery group code to include HL and TL (but no LI) for the sake of assigning the proper fishery codes
   data = add_fishery_codes(data)
 
-  if(has_column(data, FISHERY_CODE) & !has_column(data, FISHERY)) {
+  if(has_column(data, C_FISHERY_CODE) & !has_column(data, C_FISHERY)) {
     CL = all_codes("FISHERIES", connection)[order(+SORT)][, .(CODE, FISHERY = NAME_EN)]
 
-    data = merge(data, CL, by.x="FISHERY_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FISHERY_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   #Updates the fishery group code by assignling the LI fishery group code to all records with a fishery code in (LIC, LIH, LIT)
@@ -254,10 +254,10 @@ add_fisheries = function(data, connection = DB_IOTDB()) {
 }
 
 add_gears = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, GEAR_CODE) & !has_column(data, GEAR)) {
+  if(has_column(data, C_GEAR_CODE) & !has_column(data, C_GEAR)) {
     CL = all_codes("GEARS", connection)[USED == TRUE][order(+SORT)][, .(CODE, GEAR = NAME_EN)]
 
-    data = merge(data, CL, by.x="GEAR_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_GEAR_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   #Updates the fishery group code by assignling the LI fishery group code to all records with a fishery code in (LIC, LIH, LIT)
@@ -270,101 +270,101 @@ add_gears = function(data, connection = DB_IOTDB()) {
 }
 
 add_IUCN_status = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, IUCN_STATUS_CODE) & !has_column(data, IUCN_STATUS)) {
+  if(has_column(data, C_IUCN_STATUS_CODE) & !has_column(data, C_IUCN_STATUS)) {
     CL = all_codes("IUCN_STATUS", connection)
     CL = CL[order(+SORT)][, .(CODE, IUCN_STATUS = NAME_EN)]
 
-    data = merge(data, CL, by.x="IUCN_STATUS_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_IUCN_STATUS_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_species_wps = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, SPECIES_WP_CODE) & !has_column(data, SPECIES_WP)) {
+  if(has_column(data, C_SPECIES_WP_CODE) & !has_column(data, C_SPECIES_WP)) {
     CL = all_codes("WORKING_PARTIES", connection)[order(+SORT)][, .(CODE, SPECIES_WP = NAME_EN)]
 
-    data = merge(data, CL, by.x="SPECIES_WP_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_SPECIES_WP_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_species_groups = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, SPECIES_GROUP_CODE) & !has_column(data, SPECIES_GROUP)) {
+  if(has_column(data, C_SPECIES_GROUP_CODE) & !has_column(data, C_SPECIES_GROUP)) {
     CL = all_codes("SPECIES_GROUPS", connection)[order(+SORT)][, .(CODE, SPECIES_GROUP = NAME_EN)]
 
-    data = merge(data, CL, by.x="SPECIES_GROUP_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_SPECIES_GROUP_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_species_categories = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, SPECIES_CATEGORY_CODE) & !has_column(data, SPECIES_CATEGORY)) {
+  if(has_column(data, C_SPECIES_CATEGORY_CODE) & !has_column(data, C_SPECIES_CATEGORY)) {
     CL = all_codes("SPECIES_CATEGORIES", connection)[order(+SORT)][, .(CODE, SPECIES_CATEGORY = NAME_EN)]
 
-    data = merge(data, CL, by.x="SPECIES_CATEGORY_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_SPECIES_CATEGORY_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_fate_types = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, FATE_TYPE_CODE) & !has_column(data, FATE_TYPE)) {
+  if(has_column(data, C_FATE_TYPE_CODE) & !has_column(data, C_FATE_TYPE)) {
     CL = all_codes("FATE_TYPES", connection)[order(+SORT)][, .(CODE, FATE_TYPE = NAME_EN)]
 
-    data = merge(data, CL, by.x="FATE_TYPE_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FATE_TYPE_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_fates = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, FATE_CODE) & !has_column(data, FATE)) {
+  if(has_column(data, C_FATE_CODE) & !has_column(data, C_FATE)) {
     CL = all_codes("FATES", connection)[order(+SORT)][, .(CODE, FATE = NAME_EN)]
 
-    data = merge(data, CL, by.x="FATE_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_FATE_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_condition_types = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, CONDITION_TYPE_CODE) & !has_column(data, CONDITION_TYPE)) {
+  if(has_column(data, C_CONDITION_TYPE_CODE) & !has_column(data, C_CONDITION_TYPE)) {
     CL = all_codes("CONDITION_TYPES", connection)[order(+SORT)][, .(CODE, CONDITION_TYPE = NAME_EN)]
 
-    data = merge(data, CL, by.x="CONDITION_TYPE_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_CONDITION_TYPE_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_conditions = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, CONDITION_CODE) & !has_column(data, CONDITION)) {
+  if(has_column(data, C_CONDITION_CODE) & !has_column(data, C_CONDITION)) {
     CL = all_codes("CONDITIONS", connection)[order(+SORT)][, .(CODE, CONDITION = NAME_EN)]
 
-    data = merge(data, CL, by.x="CONDITION_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_CONDITION_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_raisings = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, RAISE_CODE) & !has_column(data, RAISING)) {
+  if(has_column(data, C_RAISE_CODE) & !has_column(data, C_RAISING)) {
     CL = all_codes("RAISINGS", connection)[order(+SORT)][, .(CODE, RAISING = NAME_EN)]
 
-    data = merge(data, CL, by.x="RAISE_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_RAISE_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
 }
 
 add_measure_types = function(data, connection = DB_IOTDB()) {
-  if(has_column(data, "MEASURE_TYPE_CODE") & !has_column(data, "MEASURE_TYPE")) {
+  if(has_column(data, C_MEASURE_TYPE_CODE) & !has_column(data, C_MEASURE_TYPE)) {
     CL = all_codes("MEASURE_TYPES", connection)[order(+SORT)][, .(CODE, MEASURE_TYPE = NAME_EN)]
 
-    data = merge(data, CL, by.x="MEASURE_TYPE_CODE", by.y="CODE", all.x = TRUE)
+    data = merge(data, CL, by.x = C_MEASURE_TYPE_CODE, by.y = "CODE", all.x = TRUE)
   }
 
   return(data)
