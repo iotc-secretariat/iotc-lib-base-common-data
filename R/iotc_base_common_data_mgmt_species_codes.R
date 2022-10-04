@@ -69,13 +69,13 @@ main_species_data = function(connection = DB_IOTDB()) {
   names(S)[names(S) == "SORT.y"]    = "WP_SORT"
   names(S)[names(S) == "NAME_EN.y"] = "WP_NAME_EN"
 
-  S = merge(S, all_species_groups(connection), by.x = SPECIES_GROUP_CODE, by.y = "CODE")
+  S = merge(S, all_species_groups(connection), by.x = C_SPECIES_GROUP_CODE, by.y = "CODE")
   names(S)[names(S) == "SORT.x"]    = "SORT"
   names(S)[names(S) == "NAME_EN.x"] = "NAME_EN"
   names(S)[names(S) == "SORT.y"]    = "SPECIES_GROUP_SORT"
   names(S)[names(S) == "NAME_EN.y"] = "SPECIES_GROUP_NAME_EN"
 
-  S = merge(S, all_species_categories(connection), by.x = SPECIES_CATEGORY_CODE, by.y = "CODE")
+  S = merge(S, all_species_categories(connection), by.x = C_SPECIES_CATEGORY_CODE, by.y = "CODE")
   names(S)[names(S) == "SORT.x"]    = "SORT"
   names(S)[names(S) == "NAME_EN.x"] = "NAME_EN"
   names(S)[names(S) == "SORT.y"]    = "SPECIES_CATEGORY_SORT"
@@ -90,23 +90,23 @@ main_species_data = function(connection = DB_IOTDB()) {
 #'@return The original dataset augmented with the species metadata if that's the case
 #'@export
 add_species_metadata = function(data, connection = DB_IOTDB()) {
-  if(SPECIES_CODE %in% colnames(data)) {
-    data = drop_column_if_exists(data, SPECIES_WP_CODE)
-    data = drop_column_if_exists(data, SPECIES_GROUP_CODE)
-    data = drop_column_if_exists(data, SPECIES_CATEGORY_CODE)
-    data = drop_column_if_exists(data, IS_IOTC_SPECIES)
-    data = drop_column_if_exists(data, IS_SPECIES_AGGREGATE)
-    data = drop_column_if_exists(data, IS_SSI)
+  if(C_SPECIES_CODE %in% colnames(data)) {
+    data = drop_column_if_exists(data, C_SPECIES_WP_CODE)
+    data = drop_column_if_exists(data, C_SPECIES_GROUP_CODE)
+    data = drop_column_if_exists(data, C_SPECIES_CATEGORY_CODE)
+    data = drop_column_if_exists(data, C_IS_IOTC_SPECIES)
+    data = drop_column_if_exists(data, C_IS_SPECIES_AGGREGATE)
+    data = drop_column_if_exists(data, C_IS_SSI)
 
-    data = drop_column_if_exists(data, IUCN_STATUS_CODE)
-    data = drop_column_if_exists(data, SPECIES)
+    data = drop_column_if_exists(data, C_IUCN_STATUS_CODE)
+    data = drop_column_if_exists(data, C_SPECIES)
     data = drop_column_if_exists(data, "SPECIES_SCIENTIFIC")
     data = drop_column_if_exists(data, "SPECIES_FAMILY")
     data = drop_column_if_exists(data, "SPECIES_ORDER")
 
     all_distinct_species = distinct_species(connection)
 
-    data = merge(x = data, y = all_distinct_species, by.x = SPECIES_CODE, by.y = "CODE", all.x = TRUE, allow.cartesian = TRUE)
+    data = merge(x = data, y = all_distinct_species, by.x = C_SPECIES_CODE, by.y = "CODE", all.x = TRUE, allow.cartesian = TRUE)
   }
 
   return (data)

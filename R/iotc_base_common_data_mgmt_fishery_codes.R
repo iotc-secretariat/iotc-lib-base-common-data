@@ -1,8 +1,8 @@
 #'Adds standard fishery group codes to provided data frame according to the \code{FISHERY_GROUP} column
 #'@export
 add_fishery_group_codes = function(data) {
-  if(!(FISHERY_GROUP_CODE %in% colnames(data))) data[, FISHERY_GROUP_CODE := "OT"]
-  if(FISHERY_GROUP %in% colnames(data)) {
+  if(!(C_FISHERY_GROUP_CODE %in% colnames(data))) data[, FISHERY_GROUP_CODE := "OT"]
+  if(C_FISHERY_GROUP %in% colnames(data)) {
     data[FISHERY_GROUP == "Purse seine", FISHERY_GROUP_CODE := "PS"]
     data[FISHERY_GROUP == "Longline",    FISHERY_GROUP_CODE := "LL"]
     data[FISHERY_GROUP == "Gillnet",     FISHERY_GROUP_CODE := "GN"]
@@ -50,8 +50,8 @@ update_fishery_group_codes_for_species_group = function(data, species_group = WP
 #'Adds standard fishery codes to provided data frame according to the \code{FISHERY_GROUP} and \code{CATCH_SCHOOL_TYPE_CODE} columns
 #'@export
 add_fishery_codes = function(data) {
-  has_school_type = SCHOOL_TYPE_CODE %in% colnames(data)
-  has_catch_school_type = CATCH_SCHOOL_TYPE_CODE %in% colnames(data)
+  has_school_type = C_SCHOOL_TYPE_CODE %in% colnames(data)
+  has_catch_school_type = C_CATCH_SCHOOL_TYPE_CODE %in% colnames(data)
 
   if(has_school_type) {
     data[FISHERY_GROUP_CODE == "PS" & SCHOOL_TYPE_CODE %in% c("FD", "FS"), FISHERY_CODE := "PSFS"]
@@ -84,8 +84,8 @@ add_fishery_codes = function(data) {
 }
 
 add_fishery_codes_old = function(data) {
-  has_school_type = SCHOOL_TYPE_CODE %in% colnames(data)
-  has_catch_school_type = CATCH_SCHOOL_TYPE_CODE %in% colnames(data)
+  has_school_type = C_SCHOOL_TYPE_CODE %in% colnames(data)
+  has_catch_school_type = C_CATCH_SCHOOL_TYPE_CODE %in% colnames(data)
 
   if(has_school_type) {
     data[FISHERY_GROUP_CODE == "PS" & SCHOOL_TYPE_CODE %in% c("FD", "FS"), FISHERY_CODE := "PSFS"]

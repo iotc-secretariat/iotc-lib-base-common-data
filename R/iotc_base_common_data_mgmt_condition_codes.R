@@ -1,8 +1,8 @@
 #'Adds condition type codes to provided data frame according to the \code{CONDITION_CODE} column
 #'@export
 add_condition_type_codes = function(data) {
-  if((CONDITION_CODE %in% colnames(data))) {
-    if(!CONDITION_TYPE_CODE %in% colnames(data)) {
+  if((C_CONDITION_CODE %in% colnames(data))) {
+    if(!C_CONDITION_TYPE_CODE %in% colnames(data)) {
       data$CONDITION_TYPE_CODE = character()
     }
 

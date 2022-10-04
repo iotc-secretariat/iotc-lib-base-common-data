@@ -1,8 +1,8 @@
 #'Adds fate type codes to provided data frame according to the \code{FATE_CODE} column
 #'@export
 add_fate_type_codes = function(data) {
-  if((FATE_CODE %in% colnames(data))) {
-    if(!FATE_TYPE_CODE %in% colnames(data)) {
+  if((C_FATE_CODE %in% colnames(data))) {
+    if(!C_FATE_TYPE_CODE %in% colnames(data)) {
       data$FATE_TYPE_CODE = character()
     }
 

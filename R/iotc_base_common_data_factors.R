@@ -36,7 +36,7 @@ all_species = function(connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{SPECIES_WP_CODE} factorized according to the default sequence of species group codes
 #'@export
 factorize_species_wps = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(SPECIES_WP_CODE %in% colnames(to_factorize))) {
+  if(!(C_SPECIES_WP_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -71,7 +71,7 @@ factorize_species_wps = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{SPECIES_GROUP_CODE} factorized according to the default sequence of species group codes
 #'@export
 factorize_species_groups = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(SPECIES_GROUP_CODE %in% colnames(to_factorize))) {
+  if(!(C_SPECIES_GROUP_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -106,7 +106,7 @@ factorize_species_groups = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{SPECIES_CATEGORY_CODE} factorized according to the default sequence of species group codes
 #'@export
 factorize_species_categories = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(SPECIES_CATEGORY_CODE %in% colnames(to_factorize))) {
+  if(!(C_SPECIES_CATEGORY_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -141,7 +141,7 @@ factorize_species_categories = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{SPECIES_CODE} factorized according to the default sequence of species codes
 #'@export
 factorize_species = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(SPECIES_CODE %in% colnames(to_factorize))) {
+  if(!(C_SPECIES_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -178,7 +178,7 @@ factorize_species = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{IUCN_STATUS} factorized according to the default sequence of IUCN status codes
 #'@export
 factorize_IUCN_status = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(IUCN_STATUS_CODE %in% colnames(to_factorize))) {
+  if(!(C_IUCN_STATUS_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -215,7 +215,7 @@ factorize_IUCN_status = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{RAISE_CODE} factorized according to the default sequence of raising codes
 #'@export
 factorize_raisings = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(RAISE_CODE %in% colnames(to_factorize))) {
+  if(!(C_RAISE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -252,7 +252,7 @@ factorize_raisings = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{EVENT_TYPE_CODE} factorized according to the default sequence of event type codes
 #'@export
 factorize_ROS_event_types = function(to_factorize) {
-  if(!(EVENT_TYPE_CODE %in% colnames(to_factorize))) {
+  if(!(C_EVENT_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -285,7 +285,7 @@ factorize_ROS_event_types = function(to_factorize) {
 #'@return the original data frame with the \code{FISHERY_TYPE_CODE} factorized according to the default sequence of fishery type codes
 #'@export
 factorize_fishery_types = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(FISHERY_TYPE_CODE %in% colnames(to_factorize))) {
+  if(!(C_FISHERY_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -320,7 +320,7 @@ factorize_fishery_types = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{FISHING_GROUND_CODE} factorized according to the default sequence of fishing ground codes
 #'@export
 factorize_fishing_grounds = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(FISHING_GROUND_CODE %in% colnames(to_factorize))) {
+  if(!(C_FISHING_GROUND_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -355,7 +355,7 @@ factorize_fishing_grounds = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{FISHERY_GROUP_CODE} factorized according to the default sequence of fishery group codes
 #'@export
 factorize_fishery_groups = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(FISHERY_GROUP_CODE %in% colnames(to_factorize))) {
+  if(!(C_FISHERY_GROUP_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -390,7 +390,7 @@ factorize_fishery_groups = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{FISHERY_CODE} factorized according to the default sequence of fishery codes
 #'@export
 factorize_fisheries = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(FISHERY_CODE %in% colnames(to_factorize))) {
+  if(!(C_FISHERY_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -425,7 +425,7 @@ factorize_fisheries = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{GEAR_CODE} factorized according to the default sequence of gear codes
 #'@export
 factorize_gears = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(GEAR_CODE %in% colnames(to_factorize))) {
+  if(!(C_GEAR_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -511,7 +511,7 @@ factorize_fleets = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{QUALITY_CODE} factorized according to the default sequence of quality codes
 #'@export
 factorize_qualities = function(to_factorize) {
-  if(!(QUALITY_CODE %in% colnames(to_factorize))) {
+  if(!(C_QUALITY_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -533,7 +533,7 @@ factorize_qualities = function(to_factorize) {
 #'@return the original data frame with the \code{FATE_CODE} factorized according to the default sequence of fate codes
 #'@export
 factorize_fates = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(FATE_CODE %in% colnames(to_factorize))) {
+  if(!(C_FATE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -570,7 +570,7 @@ factorize_fates = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{FATE_TYPE_CODE} factorized according to the default sequence of fate type codes
 #'@export
 factorize_fate_types = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(FATE_TYPE_CODE %in% colnames(to_factorize))) {
+  if(!(C_FATE_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -607,7 +607,7 @@ factorize_fate_types = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{CONDITION_CODE} factorized according to the default sequence of condition codes
 #'@export
 factorize_conditions = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(CONDITION_CODE %in% colnames(to_factorize))) {
+  if(!(C_CONDITION_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -644,7 +644,7 @@ factorize_conditions = function(to_factorize, connection = DB_IOTDB()) {
 #'@return the original data frame with the \code{CONDITION_TYPE_CODE} factorized according to the default sequence of condition type codes
 #'@export
 factorize_condition_types = function(to_factorize, connection = DB_IOTDB()) {
-  if(!(CONDITION_TYPE_CODE %in% colnames(to_factorize))) {
+  if(!(C_CONDITION_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
@@ -688,11 +688,11 @@ factorize_others = function(to_factorize) {
   #to_factorize$GEAR_CODE = factor(to_factorize$GEAR_CODE, ordered = TRUE)
   #to_factorize$FISHING_GROUND_CODE = factor(to_factorize$FISHING_GROUND_CODE, ordered = TRUE)
 
-  if(FLAG_CODE %in% columns) to_factorize$FLAG_CODE = factor(to_factorize$FLAG_CODE, ordered = TRUE)
+  if(C_FLAG_CODE %in% columns) to_factorize$FLAG_CODE = factor(to_factorize$FLAG_CODE, ordered = TRUE)
 
-  if(SCHOOL_TYPE_CODE %in% columns) to_factorize$SCHOOL_TYPE_CODE = factor(to_factorize$SCHOOL_TYPE_CODE, ordered = TRUE)
-  if(EFFORT_SCHOOL_TYPE_CODE %in% columns) to_factorize$EFFORT_SCHOOL_TYPE_CODE = factor(to_factorize$EFFORT_SCHOOL_TYPE_CODE, ordered = TRUE)
-  if(CATCH_SCHOOL_TYPE_CODE %in% columns) {
+  if(C_SCHOOL_TYPE_CODE %in% columns) to_factorize$SCHOOL_TYPE_CODE = factor(to_factorize$SCHOOL_TYPE_CODE, ordered = TRUE)
+  if(C_EFFORT_SCHOOL_TYPE_CODE %in% columns) to_factorize$EFFORT_SCHOOL_TYPE_CODE = factor(to_factorize$EFFORT_SCHOOL_TYPE_CODE, ordered = TRUE)
+  if(C_CATCH_SCHOOL_TYPE_CODE %in% columns) {
     to_factorize$CATCH_SCHOOL_TYPE_CODE = as.character(to_factorize$CATCH_SCHOOL_TYPE_CODE)
     #Assigns 'UNCL' to catch school type codes which are not set, otherwise it will trigger a bug with data.table
     to_factorize[is.na(CATCH_SCHOOL_TYPE_CODE)]$CATCH_SCHOOL_TYPE_CODE = "UNCL"
@@ -700,21 +700,21 @@ factorize_others = function(to_factorize) {
     to_factorize$CATCH_SCHOOL_TYPE_CODE = factor(to_factorize$CATCH_SCHOOL_TYPE_CODE, ordered = TRUE)
   }
 
-  if(EFFORT_UNIT_CODE %in% columns) to_factorize$EFFORT_UNIT_CODE = factor(to_factorize$EFFORT_UNIT_CODE, ordered = TRUE)
+  if(C_EFFORT_UNIT_CODE %in% columns) to_factorize$EFFORT_UNIT_CODE = factor(to_factorize$EFFORT_UNIT_CODE, ordered = TRUE)
 
-  if(MEASURE_TYPE_CODE %in% columns) to_factorize$MEASURE_TYPE_CODE = factor(to_factorize$MEASURE_TYPE_CODE, ordered = TRUE)
-  if(SEX_CODE %in% columns) to_factorize$SEX_CODE = factor(to_factorize$SEX_CODE, ordered = TRUE)
+  if(C_MEASURE_TYPE_CODE %in% columns) to_factorize$MEASURE_TYPE_CODE = factor(to_factorize$MEASURE_TYPE_CODE, ordered = TRUE)
+  if(C_SEX_CODE %in% columns) to_factorize$SEX_CODE = factor(to_factorize$SEX_CODE, ordered = TRUE)
 
   #if(RAISE_CODE %in% columns) to_factorize$RAISE_CODE = factor(to_factorize$RAISE_CODE, ordered = TRUE)
 
-  if(MEASURE_TYPE_CODE %in% columns) to_factorize$MEASURE_TYPE_CODE = factor(to_factorize$MEASURE_TYPE_CODE, ordered = TRUE)
-  if(MEASURE_UNIT_CODE %in% columns) to_factorize$MEASURE_UNIT_CODE = factor(to_factorize$MEASURE_UNIT_CODE, ordered = TRUE)
+  if(C_MEASURE_TYPE_CODE %in% columns) to_factorize$MEASURE_TYPE_CODE = factor(to_factorize$MEASURE_TYPE_CODE, ordered = TRUE)
+  if(C_MEASURE_UNIT_CODE %in% columns) to_factorize$MEASURE_UNIT_CODE = factor(to_factorize$MEASURE_UNIT_CODE, ordered = TRUE)
 
-  if(LENGTH_MEASURE_TYPE_CODE %in% columns) to_factorize$LENGTH_MEASURE_TYPE_CODE = factor(to_factorize$LENGTH_MEASURE_TYPE_CODE, ordered = TRUE)
-  if(LENGTH_MEASURE_UNIT_CODE %in% columns) to_factorize$LENGTH_MEASURE_UNIT_CODE = factor(to_factorize$LENGTH_MEASURE_UNIT_CODE, ordered = TRUE)
+  if(C_LENGTH_MEASURE_TYPE_CODE %in% columns) to_factorize$LENGTH_MEASURE_TYPE_CODE = factor(to_factorize$LENGTH_MEASURE_TYPE_CODE, ordered = TRUE)
+  if(C_LENGTH_MEASURE_UNIT_CODE %in% columns) to_factorize$LENGTH_MEASURE_UNIT_CODE = factor(to_factorize$LENGTH_MEASURE_UNIT_CODE, ordered = TRUE)
 
-  if(WEIGHT_MEASURE_TYPE_CODE %in% columns) to_factorize$WEIGHT_MEASURE_TYPE_CODE = factor(to_factorize$WEIGHT_MEASURE_TYPE_CODE, ordered = TRUE)
-  if(WEIGHT_MEASURE_UNIT_CODE %in% columns) to_factorize$WEIGHT_MEASURE_UNIT_CODE = factor(to_factorize$WEIGHT_MEASURE_UNIT_CODE, ordered = TRUE)
+  if(C_WEIGHT_MEASURE_TYPE_CODE %in% columns) to_factorize$WEIGHT_MEASURE_TYPE_CODE = factor(to_factorize$WEIGHT_MEASURE_TYPE_CODE, ordered = TRUE)
+  if(C_WEIGHT_MEASURE_UNIT_CODE %in% columns) to_factorize$WEIGHT_MEASURE_UNIT_CODE = factor(to_factorize$WEIGHT_MEASURE_UNIT_CODE, ordered = TRUE)
 
   return (to_factorize)
 }
