@@ -100,6 +100,7 @@ sanitize_fleet = function(flag) {
      flag == "SEYCHELLES")       return("SYC")
   if(flag == "JPN - JAPAN")      return("JPN")
   if(flag == "TZA - TANZANIA (UNITED REPUBLIC OF)") return("TZA")
+  if(flag == "OMN - OMAN") return("OMN")
 
   warning(paste("Unknown flag", flag))
 
