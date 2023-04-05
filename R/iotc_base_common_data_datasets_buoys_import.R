@@ -123,7 +123,7 @@ sanitize_vessel_IOTC_number = function(vessel_IOTC_number) {
 }
 
 extract_buoy_model = function(buoy_id) {
-  str_extract(buoy_id, "ISD\\+|ISL\\+|M3\\+|MGO|M3I|M4I|SLX\\+|DSL\\+|T8E|T8X|Te7|T7\\+|Orbit")
+  str_extract(buoy_id, "ISD\\+|ISL\\+|M3\\+|MGO|M3I|M4I|MSI|SLX\\+|DSL\\+|T8E|T8X|Te7|T7\\+|Orbit")
 }
 
 extract_buoy_brand = function(buoy_id) {
