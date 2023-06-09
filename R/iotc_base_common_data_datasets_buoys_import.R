@@ -88,6 +88,7 @@ delete_existing_data = function(vessel_IOTC_number, year, month, connection = DB
 
 sanitize_fleet = function(flag) {
   if(flag == "EU - SPAIN" |
+     flag == "ESP - EC-SPAIN" | 
      flag == "ESP - EC-Spain" | 
      flag == "ESP-EC-SPAIN")     return("EUESP")
   if(flag == "EU - FRANCE" |
