@@ -4,10 +4,16 @@
 \alias{factorize_species}
 \title{Factorizes the species codes in a data frame}
 \usage{
-factorize_species(to_factorize, connection = DB_IOTDB())
+factorize_species(
+  to_factorize,
+  collapse_secondary_species = FALSE,
+  connection = DB_IOTDB()
+)
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{SPECIES_CODE} column should be factorized}
+
+\item{collapse_secondary_species}{If \code{TRUE} all species other than the main ones will be assigned to \code{UNCL} / \code{Unclassified}}
 
 \item{connection}{A connection to the \code{\link{IOTDB}}}
 }

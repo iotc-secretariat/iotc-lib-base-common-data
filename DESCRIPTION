@@ -1,7 +1,7 @@
 Package: iotc.base.common.data
 Type: Package
 Title: IOTC base functions for common data retrieval and processing 
-Version: 0.2.1
+Version: 0.2.2
 Author: Fabio Fiorellato <fabio.fiorellato@fao.org>
 Maintainer: Fabio Fiorellato <fabio.fiorellato@fao.org>
 Description: Various functions and constants providing access to several IOTC datasets in their raw or official form, including:
@@ -18,7 +18,7 @@ Description: Various functions and constants providing access to several IOTC da
 License: Private
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Depends: 
     DBI,
     iotc.core.db.data (>= 0.2.1),

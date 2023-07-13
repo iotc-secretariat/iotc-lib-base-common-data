@@ -137,20 +137,49 @@ factorize_species_categories = function(to_factorize, connection = DB_IOTDB()) {
 
 #'Factorizes the species codes in a data frame
 #'@param to_factorize The data frame whose \code{SPECIES_CODE} column should be factorized
+#'@param collapse_secondary_species If \code{TRUE} all species other than the main ones will be assigned to \code{UNCL} / \code{Unclassified}
 #'@param connection A connection to the \code{\link{IOTDB}}
 #'@return the original data frame with the \code{SPECIES_CODE} factorized according to the default sequence of species codes
 #'@export
-factorize_species = function(to_factorize, connection = DB_IOTDB()) {
+factorize_species = function(to_factorize, collapse_secondary_species = FALSE, connection = DB_IOTDB()) {
   if(!(C_SPECIES_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
 
-  main_species = main_species_data(connection)
+  if(C_SPECIES %in% colnames(to_factorize)) {
+    to_factorize[is.na(SPECIES), SPECIES := "<unknown species name>"]
+  }
 
-  levels = append(unique(main_species[!is.na(SORT)]$CODE), "UNCL")
-  labels = append(unique(main_species[!is.na(SORT)]$NAME_EN), "Unclassified")
+  main_species  = main_species_data(connection)[!is.na(SORT)]
+  levels = unique(main_species[!is.na(SORT)]$CODE)
+  labels = unique(main_species[!is.na(SORT)]$NAME_EN)
 
-  to_factorize[!SPECIES_CODE %in% levels]$SPECIES_CODE = "UNCL"
+  if(collapse_secondary_species) {
+    levels = append(levels, "UNCL")
+    labels = append(labels, "Unclassified")
+
+    to_factorize[!SPECIES_CODE %in% levels,
+                 `:=`(SPECIES_CODE          = "UNCL",
+                      SPECIES               = "Unclassified",
+                      SPECIES_SCIENTIFIC    = NA,
+                      SPECIES_FAMILY        = NA,
+                      SPECIES_ORDER         = NA,
+                      SPECIES_WP_CODE       = "UNCL",              # To be kept updated with the actual WP codes
+                      SPECIES_WP            = "Unclassified",      # To be kept updated with the actual WP names
+                      SPECIES_GROUP_CODE    = "OTHERS",            # To be kept updated with the actual species group codes
+                      SPECIES_GROUP         = "All other species", # To be kept updated with the actual species group names
+                      SPECIES_CATEGORY_CODE = "OTHERS",            # To be kept updated with the actual species category codes
+                      SPECIES_CATEGORY      = "Other species NEI", # To be kept updated with the actual species category names
+                      IS_IOTC_SPECIES       = NA,
+                      IS_SPECIES_AGGREGATE  = NA,
+                      IS_SSI                = NA,
+                      IUCN_STATUS_CODE      = NA,
+                      IUCN_STATUS           = NA)]
+  } else {
+    other_species = unique(to_factorize[!SPECIES_CODE %in% main_species$CODE, .(SPECIES_CODE, SPECIES)])[order(SPECIES)]
+    levels = append(levels, other_species$SPECIES_CODE)
+    labels = append(labels, other_species$SPECIES)
+  }
 
   to_factorize$SPECIES = to_factorize$SPECIES_CODE
 
@@ -172,7 +201,7 @@ factorize_species = function(to_factorize, connection = DB_IOTDB()) {
   return (to_factorize[order(to_factorize$SPECIES),])
 }
 
-#'Factorizes the species codes in a data frame
+#'Factorizes the IUCN status codes in a data frame
 #'@param to_factorize The data frame whose \code{IUCN_STATUS} column should be factorized
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{IUCN_STATUS} factorized according to the default sequence of IUCN status codes

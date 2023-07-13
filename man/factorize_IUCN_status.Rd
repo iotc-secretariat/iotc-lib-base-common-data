@@ -2,7 +2,7 @@
 % Please edit documentation in R/iotc_base_common_data_factors.R
 \name{factorize_IUCN_status}
 \alias{factorize_IUCN_status}
-\title{Factorizes the species codes in a data frame}
+\title{Factorizes the IUCN status codes in a data frame}
 \usage{
 factorize_IUCN_status(to_factorize, connection = DB_IOTDB())
 }
@@ -15,5 +15,5 @@ factorize_IUCN_status(to_factorize, connection = DB_IOTDB())
 the original data frame with the \code{IUCN_STATUS} factorized according to the default sequence of IUCN status codes
 }
 \description{
-Factorizes the species codes in a data frame
+Factorizes the IUCN status codes in a data frame
 }
