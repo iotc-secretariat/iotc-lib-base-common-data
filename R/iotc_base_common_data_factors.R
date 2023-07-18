@@ -781,7 +781,7 @@ factorize_all = function(to_factorize, connection = DB_IOTDB()) {
                           ), connection
                         ), connection
                       ), connection
-                    ), connection = connection # This because 'factorize_species' requires an additional argument of 'logical' type
+                    ), collapse_secondary_species = TRUE, connection = connection
                   ), connection
                 ), connection
               ), connection
