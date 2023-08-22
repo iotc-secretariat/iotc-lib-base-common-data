@@ -394,7 +394,7 @@ add_missing_data_fields = function(data, connection = DB_IOTDB()) {
                                       add_fishing_grounds(
                                         add_quarters(
                                           data
-                                        )
+                                        ), connection
                                       ), connection
                                     ), connection
                                   ), connection
@@ -404,10 +404,10 @@ add_missing_data_fields = function(data, connection = DB_IOTDB()) {
                           ), connection
                         ), connection
                       ), connection
-                    )
-                  ),connection
+                    ), connection
+                  ), connection
                 ), connection
-              )
+              ), connection
             ), connection
           ), connection
         ), connection

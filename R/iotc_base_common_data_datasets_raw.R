@@ -73,7 +73,8 @@ NC_raw = function(use_official = TRUE,
   data = data[!is_available(fishery_codes) | FISHERY_CODE %in% fishery_codes, ]
   data = data[!is_available(fishery_group_codes) | FISHERY_GROUP_CODE %in% fishery_group_codes, ]
 
-  if(factorize_results) return(factorize_fishing_grounds(data))
+  # FFiorellato: WHY? I'm supposed to know it, but it goes beyond my (current) understanding
+  if(factorize_results) return(factorize_fishing_grounds(data, connection = connection))
   else return(data)
 }
 
