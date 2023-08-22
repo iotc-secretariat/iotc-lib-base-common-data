@@ -404,10 +404,10 @@ add_missing_data_fields = function(data, connection = DB_IOTDB()) {
                           ), connection
                         ), connection
                       ), connection
-                    ), connection
+                    )# , connection
                   ), connection
                 ), connection
-              ), connection
+              ) #, connection
             ), connection
           ), connection
         ), connection
