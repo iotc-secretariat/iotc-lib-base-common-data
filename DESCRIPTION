@@ -24,7 +24,7 @@ Depends:
     iotc.core.db.data (>= 0.2.1),
     iotc.core.utils.misc (>= 0.2.1),
     iotc.core.gis.cwp.IO (>= 0.2.1),
-    data.table,
+    data.table (>= 1.14.9),
     openxlsx,
     stringi,
     stringr
