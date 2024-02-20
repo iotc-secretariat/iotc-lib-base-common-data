@@ -67,15 +67,20 @@ NC_raw = function(use_official = TRUE,
 
   NC_query = paste(NC_query, "1 = 1")
 
-  data = (decorate(query(connection, NC_query), factorize_results, connection = connection))
+  data = query(connection, NC_query)
+
+  if(!"QUARTER" %in% colnames(data)) data$QUARTER = as.integer(NA)
+
+  data = decorate(data, factorize_results, connection = connection)
 
   #Filters by fishery code / fishery group code, if required (the two data fields are not available within the query)
   data = data[!is_available(fishery_codes) | FISHERY_CODE %in% fishery_codes, ]
   data = data[!is_available(fishery_group_codes) | FISHERY_GROUP_CODE %in% fishery_group_codes, ]
 
   # FFiorellato: WHY? I'm supposed to know it, but it goes beyond my (current) understanding
-  if(factorize_results) return(factorize_fishing_grounds(data, connection = connection))
-  else return(data)
+  if(factorize_results) data = factorize_fishing_grounds(data, connection = connection)
+
+  return(data)
 }
 
 #' Retrieves *raw* monthly effort data from the 'standard' \code{V_LEGACY_EF_STD} or 'official' \code{V_LEGACY_EF_OFF} view on IOTDB, optionally filtering the records
