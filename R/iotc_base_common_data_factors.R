@@ -43,7 +43,7 @@ factorize_species_wps = function(to_factorize, connection = DB_IOTDB()) {
   WPS = if(!is.null(connection)){
     all_wps(connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::WORKING_PARTIES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_WORKING_PARTIES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(WPS$CODE)
@@ -82,7 +82,7 @@ factorize_species_groups = function(to_factorize, connection = DB_IOTDB()) {
   SG = if(!is.null(connection)){
     all_species_groups(connection)[order(+SORT)]
   }else{
-  iotc.data.reference.codelists::SPECIES_GROUPS[order(+SORT)]
+  iotc.data.reference.codelists::LEGACY_SPECIES_GROUPS_IOTDB[order(+SORT)]
   }
 
   levels = as.character(SG$CODE)
@@ -121,7 +121,7 @@ factorize_species_categories = function(to_factorize, connection = DB_IOTDB()) {
   SC = if(!is.null(connection)){
     all_species_categories(connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::SPECIES_CATEGORIES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_SPECIES_CATEGORIES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(SC$CODE)
@@ -228,7 +228,7 @@ factorize_IUCN_status = function(to_factorize, connection = DB_IOTDB()) {
   IU = if(!is.null(connection)){
     all_codes("IUCN_STATUS", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::IUCN_STATUS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_IUCN_STATUS_IOTDB[order(+SORT)]
   }
   levels = as.character(IU$CODE)
   labels = as.character(IU$NAME_EN)
@@ -268,7 +268,7 @@ factorize_raisings = function(to_factorize, connection = DB_IOTDB()) {
   RA = if(!is.null(connection)){
     all_codes("RAISINGS", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::RAISINGS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_RAISINGS_IOTDB[order(+SORT)]
   }
 
   levels = as.character(RA$CODE)
@@ -340,7 +340,7 @@ factorize_fishery_types = function(to_factorize, connection = DB_IOTDB()) {
   FT = if(!is.null(connection)){
     all_codes("FISHERY_TYPES", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::FISHERY_TYPES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FISHERY_TYPES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FT$CODE)
@@ -379,7 +379,7 @@ factorize_fishing_grounds = function(to_factorize, connection = DB_IOTDB()) {
   FG = if(!is.null(connection)){
     all_codes("FISHING_GROUNDS", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::FISHING_GROUNDS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FISHING_GROUNDS_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FG$CODE)
@@ -418,7 +418,7 @@ factorize_fishery_groups = function(to_factorize, connection = DB_IOTDB()) {
   FG = if(!is.null(connection)){
     all_codes("FISHERY_GROUPS", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::FISHERY_GROUPS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FISHERY_GROUPS_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FG$CODE)
@@ -457,7 +457,7 @@ factorize_fisheries = function(to_factorize, connection = DB_IOTDB()) {
   FI = if(!is.null(connection)){
     all_codes("FISHERIES", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::FISHERIES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FISHERIES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FI$CODE)
@@ -496,7 +496,7 @@ factorize_gears = function(to_factorize, connection = DB_IOTDB()) {
   FI = if(!is.null(connection)){
     all_codes("GEARS", connection)[USED == TRUE][order(+SORT)]
   }else{
-    iotc.data.reference.codelists::LEGACY_GEARS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_GEARS_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FI$CODE)
@@ -549,7 +549,7 @@ factorize_fleets = function(to_factorize, connection = DB_IOTDB()) {
   FL = if(!is.null(connection)){
     all_fleets(connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::LEGACY_FLEETS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FLEETS_IOTDB[order(+SORT)]
   }
 
   levels = unique(as.character(FL$CODE))
@@ -614,7 +614,7 @@ factorize_fates = function(to_factorize, connection = DB_IOTDB()) {
   FA = if(!is.null(connection)){
     all_codes("FATES", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::FATES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FATES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FA$CODE)
@@ -655,7 +655,7 @@ factorize_fate_types = function(to_factorize, connection = DB_IOTDB()) {
   FT = if(!is.null(connection)){
     all_codes("FATE_TYPES", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::FATE_TYPES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_FATE_TYPES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(FT$CODE)
@@ -696,7 +696,7 @@ factorize_conditions = function(to_factorize, connection = DB_IOTDB()) {
   CO = if(!is.null(connection)){
     all_codes("CONDITIONS", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::CONDITIONS[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_CONDITIONS_IOTDB[order(+SORT)]
   }
 
   levels = as.character(CO$CODE)
@@ -737,7 +737,7 @@ factorize_condition_types = function(to_factorize, connection = DB_IOTDB()) {
   CT = if(!is.null(connection)){
     all_codes("CONDITION_TYPES", connection)[order(+SORT)]
   }else{
-    iotc.data.reference.codelists::CONDITION_TYPES[order(+SORT)]
+    iotc.data.reference.codelists::LEGACY_CONDITION_TYPES_IOTDB[order(+SORT)]
   }
 
   levels = as.character(CT$CODE)

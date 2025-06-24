@@ -56,7 +56,7 @@ species_name = function(species_code, connection = DB_IOTDB()) {
   record = if(!is.null(connection)){
     all_species(connection)[CODE == species_code]
   }else{
-    iotc.data.reference.codelists::LEGACY_SPECIES[CODE== species_code]
+    iotc.data.reference.codelists::LEGACY_SPECIES_IOTDB[CODE== species_code]
   }
 
   if(nrow(record) > 0) return(record$NAME_EN)
@@ -68,22 +68,22 @@ main_species_data = function(connection = DB_IOTDB()) {
   S = if(!is.null(connection)){
     all_species(connection)
   }else{
-    iotc.data.reference.codelists::LEGACY_SPECIES
+    iotc.data.reference.codelists::LEGACY_SPECIES_IOTDB
   }
-  S = merge(S, if(!is.null(connection)) all_wps(connection) else iotc.data.reference.codelists::WORKING_PARTIES, by.x = "WP_CODE", by.y = "CODE")
+  S = merge(S, if(!is.null(connection)) all_wps(connection) else iotc.data.reference.codelists::LEGACY_WORKING_PARTIES_IOTDB, by.x = "WP_CODE", by.y = "CODE")
 
   names(S)[names(S) == "SORT.x"] = "SORT"
   names(S)[names(S) == "NAME_EN.x"] = "NAME_EN"
   names(S)[names(S) == "SORT.y"]    = "WP_SORT"
   names(S)[names(S) == "NAME_EN.y"] = "WP_NAME_EN"
 
-  S = merge(S, if(!is.null(connection)) all_species_groups(connection) else iotc.data.reference.codelists::SPECIES_GROUPS, by.x = C_SPECIES_GROUP_CODE, by.y = "CODE")
+  S = merge(S, if(!is.null(connection)) all_species_groups(connection) else iotc.data.reference.codelists::LEGACY_SPECIES_GROUPS_IOTDB, by.x = C_SPECIES_GROUP_CODE, by.y = "CODE")
   names(S)[names(S) == "SORT.x"]    = "SORT"
   names(S)[names(S) == "NAME_EN.x"] = "NAME_EN"
   names(S)[names(S) == "SORT.y"]    = "SPECIES_GROUP_SORT"
   names(S)[names(S) == "NAME_EN.y"] = "SPECIES_GROUP_NAME_EN"
 
-  S = merge(S, if(!is.null(connection)) all_species_categories(connection) else iotc.data.reference.codelists::SPECIES_CATEGORIES, by.x = C_SPECIES_CATEGORY_CODE, by.y = "CODE")
+  S = merge(S, if(!is.null(connection)) all_species_categories(connection) else iotc.data.reference.codelists::LEGACY_SPECIES_CATEGORIES_IOTDB, by.x = C_SPECIES_CATEGORY_CODE, by.y = "CODE")
   names(S)[names(S) == "SORT.x"]    = "SORT"
   names(S)[names(S) == "NAME_EN.x"] = "NAME_EN"
   names(S)[names(S) == "SORT.y"]    = "SPECIES_CATEGORY_SORT"
