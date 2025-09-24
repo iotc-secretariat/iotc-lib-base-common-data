@@ -10,7 +10,7 @@ convert_measure(
   target_measure_code,
   source_measure,
   fishery_group_code = NA,
-  connection = DB_IOTDB()
+  connection = iotc.core.db.connections::getDefaultDBIHandler()()
 )
 }
 \arguments{

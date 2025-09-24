@@ -2,7 +2,7 @@
 #'@param connection A connection to the IOTDB
 #'@return a data frame with multiple rows (one for each species) and the required columns to model the structure of the table
 #'@export
-all_species = function(connection = DB_IOTDB()) {
+all_species = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(
     cache_get_or_set(CODELISTS_CACHE, cache_key_root("SPECIES"), {
       query(
@@ -17,7 +17,7 @@ all_species = function(connection = DB_IOTDB()) {
 #'@param connection A connection to the IOTDB
 #'@return a data frame with multiple rows (one for each species) and the required columns to model the structure of the table
 #'@export
-distinct_species = function(connection = DB_IOTDB()) {
+distinct_species = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(
     cache_get_or_set(CODELISTS_CACHE, cache_key_root("DISTINCT_SPECIES"), {
       query(
@@ -52,7 +52,7 @@ distinct_species = function(connection = DB_IOTDB()) {
 #'@return The English name for the provided species code
 #'@examples species_name("YFT")
 #'@export
-species_name = function(species_code, connection = DB_IOTDB()) {
+species_name = function(species_code, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   record = if(!is.null(connection)){
     all_species(connection)[CODE == species_code]
   }else{
@@ -64,7 +64,7 @@ species_name = function(species_code, connection = DB_IOTDB()) {
   return(NA);
 }
 
-main_species_data = function(connection = DB_IOTDB()) {
+main_species_data = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   S = if(!is.null(connection)){
     all_species(connection)
   }else{
@@ -97,7 +97,7 @@ main_species_data = function(connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return The original dataset augmented with the species metadata if that's the case
 #'@export
-add_species_metadata = function(data, connection = DB_IOTDB()) {
+add_species_metadata = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(C_SPECIES_CODE %in% colnames(data)) {
     data = drop_column_if_exists(data, C_SPECIES_WP_CODE)
     data = drop_column_if_exists(data, C_SPECIES_GROUP_CODE)

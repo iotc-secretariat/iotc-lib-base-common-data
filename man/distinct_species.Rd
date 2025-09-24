@@ -4,7 +4,7 @@
 \alias{distinct_species}
 \title{Extracts all distinct details of the \code{[meta].SPECIES} table as available on \code{IOTDB}}
 \usage{
-distinct_species(connection = DB_IOTDB())
+distinct_species(connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{connection}{A connection to the IOTDB}

@@ -12,7 +12,7 @@ EF_raw_off(
   fishery_group_codes = NULL,
   school_type_codes = NULL,
   effort_unit_codes = NULL,
-  connection = DB_IOTDB(),
+  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_result = TRUE
 )
 }

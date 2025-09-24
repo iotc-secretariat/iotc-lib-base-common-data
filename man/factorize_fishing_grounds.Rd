@@ -4,7 +4,7 @@
 \alias{factorize_fishing_grounds}
 \title{Factorizes the fishing ground codes (\code{IRWESIO} and \code{IREASIO}) in a data frame}
 \usage{
-factorize_fishing_grounds(to_factorize, connection = DB_IOTDB())
+factorize_fishing_grounds(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{FISHING_GROUND_CODE} column should be factorized}

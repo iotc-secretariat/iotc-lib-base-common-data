@@ -4,7 +4,7 @@
 \alias{update_fishery_codes_for_species_group}
 \title{Adds fishery codes for a specific species to provided data frame according to the \code{FISHERY_GROUP} column}
 \usage{
-update_fishery_codes_for_species_group(data, connection = DB_IOTDB())
+update_fishery_codes_for_species_group(data, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \description{
 Adds fishery codes for a specific species to provided data frame according to the \code{FISHERY_GROUP} column

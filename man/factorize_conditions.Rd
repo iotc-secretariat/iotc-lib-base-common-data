@@ -4,7 +4,7 @@
 \alias{factorize_conditions}
 \title{Factorizes the condition codes in a data frame}
 \usage{
-factorize_conditions(to_factorize, connection = DB_IOTDB())
+factorize_conditions(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{CONDITION_CODE} column should be factorized}

@@ -19,7 +19,7 @@ SA_ros(
   species_wp_codes = NULL,
   measure_type_codes = NULL,
   connection = DB_ROS(),
-  IOTDB_connection = DB_IOTDB(),
+  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_results = TRUE
 )
 }

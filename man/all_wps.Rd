@@ -4,7 +4,7 @@
 \alias{all_wps}
 \title{Extracts all details of the \code{[meta].WORKING_PARTIES} table as available on \code{IOTDB}}
 \usage{
-all_wps(connection = DB_IOTDB())
+all_wps(connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{connection}{A connection to the \code{\link{IOTDB}}}

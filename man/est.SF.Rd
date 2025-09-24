@@ -12,7 +12,7 @@ est.SF(
   fishery_codes = NULL,
   fishery_group_codes = NULL,
   school_type_codes = NULL,
-  connection = DB_IOTDB(),
+  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_results = TRUE
 )
 }

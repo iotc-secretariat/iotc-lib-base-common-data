@@ -9,7 +9,7 @@ decorate(
   data,
   factorize = TRUE,
   remove_non_standard_columns = TRUE,
-  connection = DB_IOTDB()
+  connection = iotc.core.db.connections::getDefaultDBIHandler()()
 )
 }
 \arguments{

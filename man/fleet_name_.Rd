@@ -5,7 +5,7 @@
 \title{DEPRECATED
 Extracts a fleet name from the \code{CountryStratVsFleet} table on \code{IOTDB} for a given fleet code}
 \usage{
-fleet_name_(fleet_code, connection = DB_IOTDB())
+fleet_name_(fleet_code, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{fleet_code}{A fleet code}

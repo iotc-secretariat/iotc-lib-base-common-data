@@ -4,7 +4,7 @@
 \alias{add_species_metadata}
 \title{Adds various species' metadata to a dataset containing a \code{SPECIES_CODE} column}
 \usage{
-add_species_metadata(data, connection = DB_IOTDB())
+add_species_metadata(data, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{data}{The dataset}

@@ -4,7 +4,7 @@
 \alias{all_species_groups}
 \title{Extracts all details of the \code{[meta].SPECIES_GROUPS} table as available on \code{IOTDB}}
 \usage{
-all_species_groups(connection = DB_IOTDB())
+all_species_groups(connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{connection}{A connection to the \code{\link{IOTDB}}}

@@ -15,7 +15,7 @@ NC.raised(
   species_group_codes = NULL,
   species_wp_codes = NULL,
   connection = DB_WP_CE_RAISED(),
-  connection_IOTDB = DB_IOTDB(),
+  connection_IOTDB = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_results = TRUE
 )
 }

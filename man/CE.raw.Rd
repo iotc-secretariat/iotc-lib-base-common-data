@@ -19,7 +19,7 @@ CE.raw(
   species_wp_codes = NULL,
   effort_unit_codes = NULL,
   catch_unit_codes = NULL,
-  connection = DB_IOTDB(),
+  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_results = TRUE
 )
 }

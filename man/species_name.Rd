@@ -4,7 +4,7 @@
 \alias{species_name}
 \title{Extracts a species name from the \code{cdeSpecies} table on \code{IOTDB} for a given species code}
 \usage{
-species_name(species_code, connection = DB_IOTDB())
+species_name(species_code, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{species_code}{A species code}

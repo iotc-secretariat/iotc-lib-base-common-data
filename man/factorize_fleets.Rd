@@ -4,7 +4,7 @@
 \alias{factorize_fleets}
 \title{Factorizes the fleet codes in a data frame}
 \usage{
-factorize_fleets(to_factorize, connection = DB_IOTDB())
+factorize_fleets(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{FLEET_CODE} column should be factorized}

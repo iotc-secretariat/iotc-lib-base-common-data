@@ -1,7 +1,7 @@
 #'DEPRECATED
 #'Adds the \code{FLEET} (fleet english name), \code{FLEET_SORT} (fleet sorting order), \code{CPC_CODE} (fleet CPC code) and \code{STATUS} (fleet CPC status) to a data table already containing a \code{FLEET_CODE} column
 #'@export
-add_fleet_names_ = function(data, connection = DB_IOTDB()) {
+add_fleet_names_ = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   all_fleet_codes = all_fleets(connection)
 
   updated = merge(data, all_fleet_codes, by.x = FLEET_CODE, by.y = "CODE", all.x = TRUE)
@@ -21,7 +21,7 @@ add_fleet_names_ = function(data, connection = DB_IOTDB()) {
 #'\code{FLEET_NAME_EN} (the fleet english name)
 #'\code{STATUS} (the status of the fleet CPC: one among \code{CPC}, \code{NON_CPC}, \code{NEI})
 #'@export
-all_fleets = function(connection = DB_IOTDB()) {
+all_fleets = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!exists("FLEETS", CODELISTS_CACHE)) {
     data =
       query(
@@ -41,7 +41,7 @@ all_fleets = function(connection = DB_IOTDB()) {
 #'@return The English name for the provided fleet code
 #'@examples fleet_name("EU_FRA")
 #'@export
-fleet_name_ = function(fleet_code, connection = DB_IOTDB()) {
+fleet_name_ = function(fleet_code, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   record = all_fleets(connection)["CODE" == fleet_code]
 
   if(nrow(record) > 0) return(record$NAME_EN)

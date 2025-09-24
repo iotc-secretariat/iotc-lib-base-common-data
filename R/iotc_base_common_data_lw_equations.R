@@ -24,7 +24,7 @@ convert_measure = function(species_code,
                            target_measure_code,
                            source_measure,
                            fishery_group_code = NA,
-                           connection = DB_IOTDB()) {
+                           connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!is_available(species_code))        stop("Please provide a species code")
   if(!is_available(source_measure_code)) stop("Please provide a source measure code")
   if(!is_available(target_measure_code)) stop("Please provide a target measure code")

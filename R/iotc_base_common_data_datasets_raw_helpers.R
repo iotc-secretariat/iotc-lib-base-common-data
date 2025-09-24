@@ -10,7 +10,7 @@ NC_raw_std = function(years = NULL,
                       species_category_codes = NULL,
                       species_group_codes = NULL,
                       species_wp_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return ((NC_raw(FALSE, years, flag_codes, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, connection, factorize_result)))
 }
@@ -26,7 +26,7 @@ NC_raw_off = function(years = NULL,
                       species_category_codes = NULL,
                       species_group_codes = NULL,
                       species_wp_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return ((NC_raw(TRUE, years, NULL, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, connection, factorize_result)))
 }
@@ -40,7 +40,7 @@ EF_raw_off = function(years = NULL,
                       fishery_group_codes = NULL,
                       school_type_codes = NULL,
                       effort_unit_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return ((EF_raw(TRUE, years, NULL, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, effort_unit_codes, connection, factorize_result)))
 }
@@ -55,7 +55,7 @@ EF_raw_std = function(years = NULL,
                       fishery_group_codes = NULL,
                       school_type_codes = NULL,
                       effort_unit_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return ((EF_raw(FALSE, years, flag_codes, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, effort_unit_codes, connection, factorize_result)))
 }
@@ -73,7 +73,7 @@ CA_raw_off = function(years = NULL,
                       species_group_codes = NULL,
                       species_wp_codes = NULL,
                       catch_unit_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
 
   return (CA_raw(TRUE, years, NULL, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, catch_unit_codes, connection, factorize_result))
@@ -93,7 +93,7 @@ CA_raw_std = function(years = NULL,
                       species_group_codes = NULL,
                       species_wp_codes = NULL,
                       catch_unit_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
 
   return (CA_raw(FALSE, years, flag_codes, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, catch_unit_codes, connection, factorize_result))
@@ -113,7 +113,7 @@ CE_raw_off = function(years = NULL,
                       species_wp_codes = NULL,
                       effort_unit_codes = NULL,
                       catch_unit_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return (CE_raw(TRUE, years, NULL, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, effort_unit_codes, catch_unit_codes, connection, factorize_result))
 }
@@ -133,7 +133,7 @@ CE_raw_std = function(years = NULL,
                       species_wp_codes = NULL,
                       effort_unit_codes = NULL,
                       catch_unit_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return (CE_raw(FALSE, years, flag_codes, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, effort_unit_codes, catch_unit_codes, connection, factorize_result))
 }
@@ -151,7 +151,7 @@ SA_raw_off = function(years = NULL,
                       species_group_codes = NULL,
                       species_wp_codes = NULL,
                       measure_type_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return (SA_raw(TRUE, years, NULL, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, measure_type_codes, connection, factorize_result))
 }
@@ -170,7 +170,7 @@ SA_raw_std = function(years = NULL,
                       species_group_codes = NULL,
                       species_wp_codes = NULL,
                       measure_type_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return (SA_raw(FALSE, years, flag_codes, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, measure_type_codes, connection, factorize_result))
 }
@@ -189,7 +189,7 @@ SF_raw_off = function(years = NULL,
                       species_wp_codes = NULL,
                       measure_type_codes = NULL,
                       sex_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return (SF_raw(TRUE, years, NULL, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, measure_type_codes, sex_codes, connection, factorize_result))
 }
@@ -209,7 +209,7 @@ SF_raw_std = function(years = NULL,
                       species_wp_codes = NULL,
                       measure_type_codes = NULL,
                       sex_codes = NULL,
-                      connection = DB_IOTDB(),
+                      connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                       factorize_result = TRUE) {
   return (SF_raw(FALSE, years, flag_codes, fleet_codes, gear_codes, fishery_codes, fishery_group_codes, school_type_codes, species_codes, species_category_codes, species_group_codes, species_wp_codes, measure_type_codes, sex_codes, connection, factorize_result))
 }

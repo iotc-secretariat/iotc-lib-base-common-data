@@ -12,7 +12,7 @@ data_quality(
   gear_code = NULL,
   species_code = NULL,
   species_group_code = NULL,
-  connection = DB_IOTDB(),
+  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_result = TRUE
 )
 }

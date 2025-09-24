@@ -5,9 +5,9 @@
 \alias{all_species}
 \title{Extracts all details of the \code{[meta].SPECIES} table as available on \code{IOTDB}}
 \usage{
-all_species(connection = DB_IOTDB())
+all_species(connection = iotc.core.db.connections::getDefaultDBIHandler()())
 
-all_species(connection = DB_IOTDB())
+all_species(connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{connection}{A connection to the IOTDB}

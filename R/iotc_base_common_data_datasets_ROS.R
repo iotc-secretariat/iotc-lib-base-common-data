@@ -24,7 +24,7 @@ EF_ros = function(years = NULL,
                   school_type_codes = NULL,
                   effort_unit_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -92,7 +92,7 @@ CA_ros = function(years = NULL,
                   catch_unit_codes = NULL,
                   fate_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -172,7 +172,7 @@ CE_ros = function(years = NULL,
                   catch_unit_codes = NULL,
                   fate_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -252,7 +252,7 @@ IN_ros = function(years = NULL,
                   fate_codes = NULL,
                   condition_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -328,7 +328,7 @@ SA_ros = function(years = NULL,
                   species_wp_codes = NULL,
                   measure_type_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -404,7 +404,7 @@ SF_ros = function(years = NULL,
                   measure_type_codes = NULL,
                   sex_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -484,7 +484,7 @@ LW_ros = function(years = NULL,
                   weight_measure_type_codes = NULL,
                   sex_codes = NULL,
                   connection = DB_ROS(),
-                  IOTDB_connection = DB_IOTDB(),
+                  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -560,7 +560,7 @@ SETS_raw_ros = function(years = NULL,
                         fishery_group_codes = NULL,
                         event_type_codes = NULL,
                         connection = DB_ROS(),
-                        IOTDB_connection = DB_IOTDB(),
+                        IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                         factorize_results = TRUE) {
 
   s_years       = join_values(years)

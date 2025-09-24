@@ -14,7 +14,7 @@ reset_codelists_cache = function() {
 #'@param table The table
 #'@return the content of the table as a data.table
 #'@export
-all_meta = function(table = "SPECIES", connection = DB_IOTDB()) {
+all_meta = function(table = "SPECIES", connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(
     query(
         connection,
@@ -28,7 +28,7 @@ all_meta = function(table = "SPECIES", connection = DB_IOTDB()) {
 #'@param codelist The name of a codelist table
 #'@return the content of the codelist table as a data.table
 #'@export
-all_codes = function(codelist = "FLEETS", connection = DB_IOTDB()) {
+all_codes = function(codelist = "FLEETS", connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(
     cache_get_or_set(
       CODELISTS_CACHE,
@@ -163,7 +163,7 @@ reorder_columns = function(data, remove_non_standard_columns = TRUE) {
 #'@param remove_non_standard_columns If \code{TRUE}, non-standard columns (i.e., not belonging to the data model) will be removed.
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@export
-decorate = function(data, factorize = TRUE, remove_non_standard_columns = TRUE, connection = DB_IOTDB()) {
+decorate = function(data, factorize = TRUE, remove_non_standard_columns = TRUE, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   result =
     add_missing_data_fields(
       add_species_metadata(
@@ -194,7 +194,7 @@ add_quarters = function(data) {
   return(data)
 }
 
-add_fishing_grounds = function(data, connection = DB_IOTDB()) {
+add_fishing_grounds = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_FISHING_GROUND_CODE) & !has_column(data, C_FISHING_GROUND)) {
     CL = all_codes("FISHING_GROUNDS", connection)[order(+SORT)][, .(CODE, FISHING_GROUND = NAME_EN)]
 
@@ -204,7 +204,7 @@ add_fishing_grounds = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_fleets = function(data, connection = DB_IOTDB()) {
+add_fleets = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_FLEET_CODE) & !has_column(data, C_FLEET)) {
     CL = all_codes("FLEETS", connection)[order(+SORT)][, .(CODE, FLEET = NAME_EN)]
 
@@ -214,7 +214,7 @@ add_fleets = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_fishery_types = function(data, connection = DB_IOTDB()) {
+add_fishery_types = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_FISHERY_TYPE_CODE) & !has_column(data, C_FISHERY_TYPE)) {
     CL = all_codes("FISHERY_TYPES", connection)[order(+SORT)][, .(CODE, FISHERY_TYPE = NAME_EN)]
 
@@ -224,7 +224,7 @@ add_fishery_types = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_fishery_groups = function(data, connection = DB_IOTDB()) {
+add_fishery_groups = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_FISHERY_GROUP_CODE) & !has_column(data, C_FISHERY_GROUP)) {
     CL = all_codes("FISHERY_GROUPS", connection)[order(+SORT)][, .(CODE, FISHERY_GROUP = NAME_EN)]
 
@@ -234,7 +234,7 @@ add_fishery_groups = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_fisheries = function(data, connection = DB_IOTDB()) {
+add_fisheries = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   #Requires the fishery group code to include HL and TL (but no LI) for the sake of assigning the proper fishery codes
   data = add_fishery_codes(data)
 
@@ -253,7 +253,7 @@ add_fisheries = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_gears = function(data, connection = DB_IOTDB()) {
+add_gears = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_GEAR_CODE) & !has_column(data, C_GEAR)) {
     CL = all_codes("GEARS", connection)[USED == TRUE][order(+SORT)][, .(CODE, GEAR = NAME_EN)]
 
@@ -269,7 +269,7 @@ add_gears = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_IUCN_status = function(data, connection = DB_IOTDB()) {
+add_IUCN_status = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_IUCN_STATUS_CODE) & !has_column(data, C_IUCN_STATUS)) {
     CL = all_codes("IUCN_STATUS", connection)
     CL = CL[order(+SORT)][, .(CODE, IUCN_STATUS = NAME_EN)]
@@ -280,7 +280,7 @@ add_IUCN_status = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_species_wps = function(data, connection = DB_IOTDB()) {
+add_species_wps = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_SPECIES_WP_CODE) & !has_column(data, C_SPECIES_WP)) {
     CL = all_codes("WORKING_PARTIES", connection)[order(+SORT)][, .(CODE, SPECIES_WP = NAME_EN)]
 
@@ -290,7 +290,7 @@ add_species_wps = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_species_groups = function(data, connection = DB_IOTDB()) {
+add_species_groups = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_SPECIES_GROUP_CODE) & !has_column(data, C_SPECIES_GROUP)) {
     CL = all_codes("SPECIES_GROUPS", connection)[order(+SORT)][, .(CODE, SPECIES_GROUP = NAME_EN)]
 
@@ -300,7 +300,7 @@ add_species_groups = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_species_categories = function(data, connection = DB_IOTDB()) {
+add_species_categories = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_SPECIES_CATEGORY_CODE) & !has_column(data, C_SPECIES_CATEGORY)) {
     CL = all_codes("SPECIES_CATEGORIES", connection)[order(+SORT)][, .(CODE, SPECIES_CATEGORY = NAME_EN)]
 
@@ -310,7 +310,7 @@ add_species_categories = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_fate_types = function(data, connection = DB_IOTDB()) {
+add_fate_types = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_FATE_TYPE_CODE) & !has_column(data, C_FATE_TYPE)) {
     CL = all_codes("FATE_TYPES", connection)[order(+SORT)][, .(CODE, FATE_TYPE = NAME_EN)]
 
@@ -320,7 +320,7 @@ add_fate_types = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_fates = function(data, connection = DB_IOTDB()) {
+add_fates = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_FATE_CODE) & !has_column(data, C_FATE)) {
     CL = all_codes("FATES", connection)[order(+SORT)][, .(CODE, FATE = NAME_EN)]
 
@@ -330,7 +330,7 @@ add_fates = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_condition_types = function(data, connection = DB_IOTDB()) {
+add_condition_types = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_CONDITION_TYPE_CODE) & !has_column(data, C_CONDITION_TYPE)) {
     CL = all_codes("CONDITION_TYPES", connection)[order(+SORT)][, .(CODE, CONDITION_TYPE = NAME_EN)]
 
@@ -340,7 +340,7 @@ add_condition_types = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_conditions = function(data, connection = DB_IOTDB()) {
+add_conditions = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_CONDITION_CODE) & !has_column(data, C_CONDITION)) {
     CL = all_codes("CONDITIONS", connection)[order(+SORT)][, .(CODE, CONDITION = NAME_EN)]
 
@@ -350,7 +350,7 @@ add_conditions = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_raisings = function(data, connection = DB_IOTDB()) {
+add_raisings = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_RAISE_CODE) & !has_column(data, C_RAISING)) {
     CL = all_codes("RAISINGS", connection)[order(+SORT)][, .(CODE, RAISING = NAME_EN)]
 
@@ -360,7 +360,7 @@ add_raisings = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_measure_types = function(data, connection = DB_IOTDB()) {
+add_measure_types = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(has_column(data, C_MEASURE_TYPE_CODE) & !has_column(data, C_MEASURE_TYPE)) {
     CL = all_codes("MEASURE_TYPES", connection)[order(+SORT)][, .(CODE, MEASURE_TYPE = NAME_EN)]
 
@@ -370,7 +370,7 @@ add_measure_types = function(data, connection = DB_IOTDB()) {
   return(data)
 }
 
-add_missing_data_fields = function(data, connection = DB_IOTDB()) {
+add_missing_data_fields = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   records_before = nrow(data)
 
   data = (

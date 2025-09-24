@@ -4,7 +4,7 @@
 \alias{factorize_gears}
 \title{Factorizes the gear codes in a data frame}
 \usage{
-factorize_gears(to_factorize, connection = DB_IOTDB())
+factorize_gears(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{GEAR_CODE} column should be factorized}

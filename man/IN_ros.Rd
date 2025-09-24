@@ -20,7 +20,7 @@ IN_ros(
   fate_codes = NULL,
   condition_codes = NULL,
   connection = DB_ROS(),
-  IOTDB_connection = DB_IOTDB(),
+  IOTDB_connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_results = TRUE
 )
 }

@@ -5,7 +5,7 @@
 \title{DEPRECATED
 Adds the \code{FLEET} (fleet english name), \code{FLEET_SORT} (fleet sorting order), \code{CPC_CODE} (fleet CPC code) and \code{STATUS} (fleet CPC status) to a data table already containing a \code{FLEET_CODE} column}
 \usage{
-add_fleet_names_(data, connection = DB_IOTDB())
+add_fleet_names_(data, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \description{
 DEPRECATED

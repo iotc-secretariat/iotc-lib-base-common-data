@@ -4,7 +4,7 @@
 \alias{factorize_species_categories}
 \title{Factorizes the species category codes in a data frame}
 \usage{
-factorize_species_categories(to_factorize, connection = DB_IOTDB())
+factorize_species_categories(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{SPECIES_CATEGORY_CODE} column should be factorized}

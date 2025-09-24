@@ -4,7 +4,7 @@
 \alias{factorize_IUCN_status}
 \title{Factorizes the IUCN status codes in a data frame}
 \usage{
-factorize_IUCN_status(to_factorize, connection = DB_IOTDB())
+factorize_IUCN_status(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{to_factorize}{The data frame whose \code{IUCN_STATUS} column should be factorized}

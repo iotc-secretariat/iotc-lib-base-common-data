@@ -4,7 +4,7 @@
 \alias{all_fleets}
 \title{Extracts all fleet codes and names from the \code{[meta].FLEETS} table on \code{\link{IOTDB}}}
 \usage{
-all_fleets(connection = DB_IOTDB())
+all_fleets(connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{connection}{A connection to the IOTDB}

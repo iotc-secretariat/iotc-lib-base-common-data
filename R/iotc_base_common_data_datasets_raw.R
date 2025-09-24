@@ -35,7 +35,7 @@ NC_raw = function(use_official = TRUE,
                   species_category_codes = NULL,
                   species_group_codes = NULL,
                   species_wp_codes = NULL,
-                  connection = DB_IOTDB(),
+                  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years         = join_values(years)
@@ -116,7 +116,7 @@ EF_raw = function(use_official = TRUE,
                   fishery_group_codes = NULL,
                   school_type_codes = NULL,
                   effort_unit_codes = NULL,
-                  connection = DB_IOTDB(),
+                  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -192,7 +192,7 @@ CA_raw = function(use_official = TRUE,
                   species_group_codes = NULL,
                   species_wp_codes = NULL,
                   catch_unit_codes = NULL,
-                  connection = DB_IOTDB(),
+                  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -279,7 +279,7 @@ CE_raw = function(use_official = TRUE,
                   species_wp_codes = NULL,
                   effort_unit_codes = NULL,
                   catch_unit_codes = NULL,
-                  connection = DB_IOTDB(),
+                  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -365,7 +365,7 @@ SA_raw = function(use_official = TRUE,
                   species_group_codes = NULL,
                   species_wp_codes = NULL,
                   measure_type_codes = NULL,
-                  connection = DB_IOTDB(),
+                  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)
@@ -451,7 +451,7 @@ SF_raw = function(use_official = TRUE,
                   species_wp_codes = NULL,
                   measure_type_codes = NULL,
                   sex_codes = NULL,
-                  connection = DB_IOTDB(),
+                  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
                   factorize_results = TRUE) {
 
   s_years       = join_values(years)

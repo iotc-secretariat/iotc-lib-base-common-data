@@ -7,7 +7,7 @@
 factorize_species(
   to_factorize,
   collapse_secondary_species = FALSE,
-  connection = DB_IOTDB()
+  connection = iotc.core.db.connections::getDefaultDBIHandler()()
 )
 }
 \arguments{

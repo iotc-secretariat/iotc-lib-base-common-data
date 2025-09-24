@@ -34,7 +34,7 @@ update_fishery_group_codes_for_species = function(data) {
 
 #'Marks species group-specific minor fisheries groups as 'OT'
 #'@export
-update_fishery_group_codes_for_species_group = function(data, species_group = WP_TROP, connection = DB_IOTDB()) {
+update_fishery_group_codes_for_species_group = function(data, species_group = WP_TROP, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   data = add_fishery_codes(data)
 
   data = (
@@ -136,7 +136,7 @@ update_fishery_codes_for_species = function(data) {
 
 #'Adds fishery codes for a specific species to provided data frame according to the \code{FISHERY_GROUP} column
 #'@export
-update_fishery_codes_for_species_group = function(data, connection = DB_IOTDB()) {
+update_fishery_codes_for_species_group = function(data, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   data = add_fishery_codes(data)
 
   data = (

@@ -19,7 +19,7 @@ SF.raw(
   species_wp_codes = NULL,
   measure_type_codes = NULL,
   sex_codes = NULL,
-  connection = DB_IOTDB(),
+  connection = iotc.core.db.connections::getDefaultDBIHandler()(),
   factorize_results = TRUE
 )
 }

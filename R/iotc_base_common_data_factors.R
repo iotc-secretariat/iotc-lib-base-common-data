@@ -2,7 +2,7 @@
 #'@param connection A connection to the \code{\link{IOTDB}}
 #'@return a data frame with multiple rows (one for each working party) and the required columns to model the structure of the table
 #'@export
-all_wps = function(connection = DB_IOTDB()) {
+all_wps = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(all_meta("WORKING_PARTIES", connection))
 }
 
@@ -10,7 +10,7 @@ all_wps = function(connection = DB_IOTDB()) {
 #'@param connection A connection to the \code{\link{IOTDB}}
 #'@return a data frame with multiple rows (one for each species group) and the required columns to model the structure of the table
 #'@export
-all_species_groups = function(connection = DB_IOTDB()) {
+all_species_groups = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(all_meta("SPECIES_GROUPS", connection))
 }
 
@@ -18,7 +18,7 @@ all_species_groups = function(connection = DB_IOTDB()) {
 #'@param connection A connection to the \code{\link{IOTDB}}
 #'@return a data frame with multiple rows (one for each species category) and the required columns to model the structure of the table
 #'@export
-all_species_categories = function(connection = DB_IOTDB()) {
+all_species_categories = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(all_meta("SPECIES_CATEGORIES", connection))
 }
 
@@ -26,7 +26,7 @@ all_species_categories = function(connection = DB_IOTDB()) {
 #'@param connection A connection to the \code{\link{IOTDB}}
 #'@return a data frame with multiple rows (one for each species) and the required columns to model the structure of the table
 #'@export
-all_species = function(connection = DB_IOTDB()) {
+all_species = function(connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return(all_meta("SPECIES", connection))
 }
 
@@ -35,7 +35,7 @@ all_species = function(connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{SPECIES_WP_CODE} factorized according to the default sequence of species group codes
 #'@export
-factorize_species_wps = function(to_factorize, connection = DB_IOTDB()) {
+factorize_species_wps = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_SPECIES_WP_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -74,7 +74,7 @@ factorize_species_wps = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{SPECIES_GROUP_CODE} factorized according to the default sequence of species group codes
 #'@export
-factorize_species_groups = function(to_factorize, connection = DB_IOTDB()) {
+factorize_species_groups = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_SPECIES_GROUP_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -113,7 +113,7 @@ factorize_species_groups = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{SPECIES_CATEGORY_CODE} factorized according to the default sequence of species group codes
 #'@export
-factorize_species_categories = function(to_factorize, connection = DB_IOTDB()) {
+factorize_species_categories = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_SPECIES_CATEGORY_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -153,7 +153,7 @@ factorize_species_categories = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to the \code{\link{IOTDB}}
 #'@return the original data frame with the \code{SPECIES_CODE} factorized according to the default sequence of species codes
 #'@export
-factorize_species = function(to_factorize, collapse_secondary_species = FALSE, connection = DB_IOTDB()) {
+factorize_species = function(to_factorize, collapse_secondary_species = FALSE, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_SPECIES_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -218,7 +218,7 @@ factorize_species = function(to_factorize, collapse_secondary_species = FALSE, c
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{IUCN_STATUS} factorized according to the default sequence of IUCN status codes
 #'@export
-factorize_IUCN_status = function(to_factorize, connection = DB_IOTDB()) {
+factorize_IUCN_status = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_IUCN_STATUS_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -258,7 +258,7 @@ factorize_IUCN_status = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{RAISE_CODE} factorized according to the default sequence of raising codes
 #'@export
-factorize_raisings = function(to_factorize, connection = DB_IOTDB()) {
+factorize_raisings = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_RAISE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -332,7 +332,7 @@ factorize_ROS_event_types = function(to_factorize) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{FISHERY_TYPE_CODE} factorized according to the default sequence of fishery type codes
 #'@export
-factorize_fishery_types = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fishery_types = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_FISHERY_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -371,7 +371,7 @@ factorize_fishery_types = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{FISHING_GROUND_CODE} factorized according to the default sequence of fishing ground codes
 #'@export
-factorize_fishing_grounds = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fishing_grounds = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_FISHING_GROUND_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -410,7 +410,7 @@ factorize_fishing_grounds = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{FISHERY_GROUP_CODE} factorized according to the default sequence of fishery group codes
 #'@export
-factorize_fishery_groups = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fishery_groups = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_FISHERY_GROUP_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -449,7 +449,7 @@ factorize_fishery_groups = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{FISHERY_CODE} factorized according to the default sequence of fishery codes
 #'@export
-factorize_fisheries = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fisheries = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_FISHERY_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -488,7 +488,7 @@ factorize_fisheries = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{GEAR_CODE} factorized according to the default sequence of gear codes
 #'@export
-factorize_gears = function(to_factorize, connection = DB_IOTDB()) {
+factorize_gears = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_GEAR_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -545,7 +545,7 @@ factorize_quarters = function(to_factorize) {
 #'@param connection A connection to the IOTDB (required to retrieve fleet data)
 #'@return the original data frame with the \code{FLEET_CODE} factorized according to the default sequence of fleet codes
 #'@export
-factorize_fleets = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fleets = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   FL = if(!is.null(connection)){
     all_fleets(connection)[order(+SORT)]
   }else{
@@ -604,7 +604,7 @@ factorize_qualities = function(to_factorize) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{FATE_CODE} factorized according to the default sequence of fate codes
 #'@export
-factorize_fates = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fates = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_FATE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -645,7 +645,7 @@ factorize_fates = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{FATE_TYPE_CODE} factorized according to the default sequence of fate type codes
 #'@export
-factorize_fate_types = function(to_factorize, connection = DB_IOTDB()) {
+factorize_fate_types = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_FATE_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -686,7 +686,7 @@ factorize_fate_types = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{CONDITION_CODE} factorized according to the default sequence of condition codes
 #'@export
-factorize_conditions = function(to_factorize, connection = DB_IOTDB()) {
+factorize_conditions = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_CONDITION_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -727,7 +727,7 @@ factorize_conditions = function(to_factorize, connection = DB_IOTDB()) {
 #'@param connection A connection to \code{\link{IOTDB}}
 #'@return the original data frame with the \code{CONDITION_TYPE_CODE} factorized according to the default sequence of condition type codes
 #'@export
-factorize_condition_types = function(to_factorize, connection = DB_IOTDB()) {
+factorize_condition_types = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   if(!(C_CONDITION_TYPE_CODE %in% colnames(to_factorize))) {
     return (to_factorize)
   }
@@ -807,7 +807,7 @@ factorize_others = function(to_factorize) {
   return (to_factorize)
 }
 
-factorize_all = function(to_factorize, connection = DB_IOTDB()) {
+factorize_all = function(to_factorize, connection = iotc.core.db.connections::getDefaultDBIHandler()()) {
   return (
     factorize_others(
       factorize_ROS_event_types(

@@ -4,7 +4,7 @@
 \alias{all_codes}
 \title{Extracts (and caches) all details of a metadata codelist table as available on \code{IOTDB}}
 \usage{
-all_codes(codelist = "FLEETS", connection = DB_IOTDB())
+all_codes(codelist = "FLEETS", connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{codelist}{The name of a codelist table}

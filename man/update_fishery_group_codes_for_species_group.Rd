@@ -7,7 +7,7 @@
 update_fishery_group_codes_for_species_group(
   data,
   species_group = WP_TROP,
-  connection = DB_IOTDB()
+  connection = iotc.core.db.connections::getDefaultDBIHandler()()
 )
 }
 \description{

@@ -4,7 +4,7 @@
 \alias{all_meta}
 \title{Extracts all details of a metadata table as available on \code{IOTDB}}
 \usage{
-all_meta(table = "SPECIES", connection = DB_IOTDB())
+all_meta(table = "SPECIES", connection = iotc.core.db.connections::getDefaultDBIHandler()())
 }
 \arguments{
 \item{table}{The table}
